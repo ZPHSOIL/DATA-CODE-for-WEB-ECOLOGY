@@ -1,0 +1,741 @@
+---
+title: "FFTemChan"
+output: html_document
+---
+
+```{r,include=FALSE}
+# Read libraries
+library(tidyverse)
+library(ggplot2)
+library(rcompanion)
+library(viridis)
+```
+
+```{r,include=TRUE}
+#transform the data
+FF$Abd_T= transformTukey(FF$Abd,plotit = FALSE)
+FF_1_1<-subset(FF,Grid=="R1.29"&Time=="1")
+FF_1_2<-subset(FF,Grid=="R1.29"&Time=="2")
+FF_1_3<-subset(FF,Grid=="R1.29"&Time=="3")
+FF_1_4<-subset(FF,Grid=="R1.29"&Time=="4")
+FF_1_5<-subset(FF,Grid=="R1.29"&Time=="5")
+FF_1_6<-subset(FF,Grid=="R1.29"&Time=="6")
+```
+
+
+```{r,include=TRUE}
+ggplot(FF_1_1,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 1.29 at 1st sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+
+ggplot(FF_1_2,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 1.29 at 2nd sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+
+ggplot(FF_1_3,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 1.29 at 3rd sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+
+```{r,include=TRUE}
+
+ggplot(FF_1_4,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 1.29 at 4th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+
+ggplot(FF_1_5,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 1.29 at 5th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+
+ggplot(FF_1_6,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 1.29 at 6th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+```{r,include=TRUE}
+#transform the data
+FF$Abd_T= transformTukey(FF$Abd,plotit = FALSE)
+FF_2_1<-subset(FF,Grid=="R1.18"&Time=="1")
+FF_2_2<-subset(FF,Grid=="R1.18"&Time=="2")
+FF_2_3<-subset(FF,Grid=="R1.18"&Time=="3")
+FF_2_4<-subset(FF,Grid=="R1.18"&Time=="4")
+FF_2_5<-subset(FF,Grid=="R1.18"&Time=="5")
+FF_2_6<-subset(FF,Grid=="R1.18"&Time=="6")
+```
+
+```{r,include=TRUE}
+
+ggplot(FF_2_1,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 1.18 at 1st sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+
+
+```{r,include=TRUE}
+
+ggplot(FF_2_2,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 1.18 at 2nd sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+
+ggplot(FF_2_3,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 1.18 at 3rd sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+
+ggplot(FF_2_4,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 1.18 at 4th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+
+ggplot(FF_2_5,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 1.18 at 5th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+
+
+```{r,include=TRUE}
+
+ggplot(FF_2_6,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 1.18 at 6th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+#transform the data
+FF$Abd_T= transformTukey(FF$Abd,plotit = FALSE)
+FF_3_1<-subset(FF,Grid=="R1.13"&Time=="1")
+FF_3_2<-subset(FF,Grid=="R1.13"&Time=="2")
+FF_3_3<-subset(FF,Grid=="R1.13"&Time=="3")
+FF_3_4<-subset(FF,Grid=="R1.13"&Time=="4")
+FF_3_5<-subset(FF,Grid=="R1.13"&Time=="5")
+FF_3_6<-subset(FF,Grid=="R1.13"&Time=="6")
+```
+
+```{r,include=TRUE}
+ggplot(FF_3_1,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 1.13 at 1st sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+ggplot(FF_3_2,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 1.13 at 2nd sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+
+```{r,include=TRUE}
+ggplot(FF_3_3,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 1.13 at 3th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+ggplot(FF_3_4,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 1.13 at 4th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+ggplot(FF_3_5,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 1.13 at 5th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+ggplot(FF_3_6,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 1.13 at 6th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+#transform the data
+FF$Abd_T= transformTukey(FF$Abd,plotit = FALSE)
+FF_4_1<-subset(FF,Grid=="R1.09"&Time=="1")
+FF_4_2<-subset(FF,Grid=="R1.09"&Time=="2")
+FF_4_3<-subset(FF,Grid=="R1.09"&Time=="3")
+FF_4_4<-subset(FF,Grid=="R1.09"&Time=="4")
+FF_4_5<-subset(FF,Grid=="R1.09"&Time=="5")
+FF_4_6<-subset(FF,Grid=="R1.09"&Time=="6")
+```
+
+
+```{r,include=TRUE}
+ggplot(FF_4_1,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 1.09 at 1st sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+```{r,include=TRUE}
+ggplot(FF_4_2,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 1.09 at 2nd sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+ggplot(FF_4_3,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 1.09 at 3rd sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+```{r,include=TRUE}
+ggplot(FF_4_4,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 1.09 at 4th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+ggplot(FF_4_5,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 1.09 at 5th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+ggplot(FF_4_6,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 1.09 at 6th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+
+```{r,include=TRUE}
+#transform the data
+FF$Abd_T= transformTukey(FF$Abd,plotit = FALSE)
+FF_5_1<-subset(FF,Grid=="R1.02"&Time=="1")
+FF_5_2<-subset(FF,Grid=="R1.02"&Time=="2")
+FF_5_3<-subset(FF,Grid=="R1.02"&Time=="3")
+FF_5_4<-subset(FF,Grid=="R1.02"&Time=="4")
+FF_5_5<-subset(FF,Grid=="R1.02"&Time=="5")
+FF_5_6<-subset(FF,Grid=="R1.02"&Time=="6")
+```
+```{r,include=TRUE}
+ggplot(FF_5_1,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 1.02 at 1st sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+```{r,include=TRUE}
+ggplot(FF_5_2,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 1.02 at 2nd sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+```{r,include=TRUE}
+ggplot(FF_5_3,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 1.02 at 3rd sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+ggplot(FF_5_4,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 1.02 at 4th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+ggplot(FF_5_5,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 1.02 at 5th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+ggplot(FF_5_6,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 1.02 at 6th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+#transform the data
+FF$Abd_T= transformTukey(FF$Abd,plotit = FALSE)
+FF_6_1<-subset(FF,Grid=="R0.92"&Time=="1")
+FF_6_2<-subset(FF,Grid=="R0.92"&Time=="2")
+FF_6_3<-subset(FF,Grid=="R0.92"&Time=="3")
+FF_6_4<-subset(FF,Grid=="R0.92"&Time=="4")
+FF_6_5<-subset(FF,Grid=="R0.92"&Time=="5")
+FF_6_6<-subset(FF,Grid=="R0.92"&Time=="6")
+```
+```{r,include=TRUE}
+ggplot(FF_6_1,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 0.92 at 1st sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+
+```{r,include=TRUE}
+ggplot(FF_6_2,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 0.92 at 2nd sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+ggplot(FF_6_3,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 0.92 at 3rd sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+ggplot(FF_6_4,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 0.92 at 4th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+ggplot(FF_6_5,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 0.92 at 5th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+ggplot(FF_6_6,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 0.92 at 6th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+#transform the data
+FF$Abd_T= transformTukey(FF$Abd,plotit = FALSE)
+FF_7_1<-subset(FF,Grid=="R0.86"&Time=="1")
+FF_7_2<-subset(FF,Grid=="R0.86"&Time=="2")
+FF_7_3<-subset(FF,Grid=="R0.86"&Time=="3")
+FF_7_4<-subset(FF,Grid=="R0.86"&Time=="4")
+FF_7_5<-subset(FF,Grid=="R0.86"&Time=="5")
+FF_7_6<-subset(FF,Grid=="R0.86"&Time=="6")
+```
+
+```{r,include=TRUE}
+ggplot(FF_7_1,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 0.86 at 1st sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+ggplot(FF_7_2,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 0.86 at 2nd sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+ggplot(FF_7_3,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 0.86 at 3rd sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+ggplot(FF_7_4,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 0.86 at 4th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+ggplot(FF_7_5,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 0.86 at 5th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+ggplot(FF_7_6,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 0.86 at 6th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+#transform the data
+FF$Abd_T= transformTukey(FF$Abd,plotit = FALSE)
+FF_8_1<-subset(FF,Grid=="R0.77"&Time=="1")
+FF_8_2<-subset(FF,Grid=="R0.77"&Time=="2")
+FF_8_3<-subset(FF,Grid=="R0.77"&Time=="3")
+FF_8_4<-subset(FF,Grid=="R0.77"&Time=="4")
+FF_8_5<-subset(FF,Grid=="R0.77"&Time=="5")
+FF_8_6<-subset(FF,Grid=="R0.77"&Time=="6")
+```
+
+```{r,include=TRUE}
+ggplot(FF_8_1,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 0.77 at 1st sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+ggplot(FF_8_2,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 0.77 at 2nd sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+```{r,include=TRUE}
+ggplot(FF_8_3,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 0.77 at 3rd sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+ggplot(FF_8_4,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 0.77 at 4th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+```{r,include=TRUE}
+ggplot(FF_8_5,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 0.77 at 5th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+```{r,include=TRUE}
+ggplot(FF_8_6,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 0.77 at 6th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+#transform the data
+FF$Abd_T= transformTukey(FF$Abd,plotit = FALSE)
+FF_9_1<-subset(FF,Grid=="R0.72"&Time=="1")
+FF_9_2<-subset(FF,Grid=="R0.72"&Time=="2")
+FF_9_3<-subset(FF,Grid=="R0.72"&Time=="3")
+FF_9_4<-subset(FF,Grid=="R0.72"&Time=="4")
+FF_9_5<-subset(FF,Grid=="R0.72"&Time=="5")
+FF_9_6<-subset(FF,Grid=="R0.72"&Time=="6")
+```
+
+```{r,include=TRUE}
+ggplot(FF_9_1,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 0.72 at 1st sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+ggplot(FF_9_2,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 0.72 at 2nd sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+ggplot(FF_9_3,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 0.72 at 3rd sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+
+```{r,include=TRUE}
+ggplot(FF_9_4,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 0.72 at 4th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+ggplot(FF_9_5,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 0.72 at 5th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+ggplot(FF_9_6,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 0.72 at 6th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+#transform the data
+FF$Abd_T= transformTukey(FF$Abd,plotit = FALSE)
+FF_10_1<-subset(FF,Grid=="R0.6"&Time=="1")
+FF_10_2<-subset(FF,Grid=="R0.6"&Time=="2")
+FF_10_3<-subset(FF,Grid=="R0.6"&Time=="3")
+FF_10_4<-subset(FF,Grid=="R0.6"&Time=="4")
+FF_10_5<-subset(FF,Grid=="R0.6"&Time=="5")
+FF_10_6<-subset(FF,Grid=="R0.6"&Time=="6")
+```
+
+
+```{r,include=TRUE}
+ggplot(FF_10_1,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 0.6 at 1st sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+ggplot(FF_10_2,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 0.6 at 2nd sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+ggplot(FF_10_3,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 0.6 at 3rd sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+ggplot(FF_10_4,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 0.6 at 4th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+ggplot(FF_10_5,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 0.6 at 5th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+ggplot(FF_10_6,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Fungi-feeding nematode in Grid 0.6 at 6th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+
+
+
+
+

@@ -1,0 +1,173 @@
+---
+title: "Disperal gradient"
+output:
+  pdf_document: default
+  html_document: default
+  word_document: default
+---
+
+```{r,include=FALSE}
+# Read libraries
+library(tidyverse)
+library(ggplot2)
+library(readxl)
+```
+
+```{r,include=TRUE}
+SPNETDISP <- read_excel("Desktop/SPATIAL NETWORK /SPATIONETWORK/SPNETDISP.xlsx")
+#subset the data
+SPNETDISP_BF<-subset(SPNETDISP,FncG=="BF") #Subset BF
+SPNETDISP_G1<-subset(SPNETDISP,Grid=="R1.29")#SUBSET GRID 1.29
+```
+
+
+#plot per functional group grid1
+```{r,echo=FALSE}
+  ggplot(data= SPNETDISP_G1, mapping = aes(x= Time, y= Disp, color = FncG, group= FncG)) +
+  labs(title ="Different functional group dispersal change with time in Grid 1.29 ", x ="Time points") +
+ geom_point()+geom_line()+
+theme_classic()
+```
+
+
+```{r,include=FALSE}
+#subset the data
+SPNETDISP_ROT<-subset(SPNETDISP,FncG=="ROT") #Subset ROT
+SPNETDISP_FF<-subset(SPNETDISP,FncG=="FF") #Subset FF
+SPNETDISP_PF<-subset(SPNETDISP,FncG=="PF") #Subset PF
+SPNETDISP_PRE<-subset(SPNETDISP,FncG=="PRE") #Subset PRE
+SPNETDISP_G2<-subset(SPNETDISP,Grid=="R1.18")#SUBSET GRID 1.18
+SPNETDISP_G3<-subset(SPNETDISP,Grid=="R1.13")#SUBSET GRID 1.13
+SPNETDISP_G4<-subset(SPNETDISP,Grid=="R1.09")#SUBSET GRID 1.09
+SPNETDISP_G5<-subset(SPNETDISP,Grid=="R1.02")#SUBSET GRID 1.02
+SPNETDISP_G6<-subset(SPNETDISP,Grid=="R0.92")#SUBSET GRID 0.92
+SPNETDISP_G7<-subset(SPNETDISP,Grid=="R0.86")#SUBSET GRID 0.86
+SPNETDISP_G8<-subset(SPNETDISP,Grid=="R0.77")#SUBSET GRID 0.77
+SPNETDISP_G9<-subset(SPNETDISP,Grid=="R0.72")#SUBSET GRID 0.72
+SPNETDISP_G10<-subset(SPNETDISP,Grid=="R0.6")#SUBSET GRID 0.6
+```
+
+#plot per functional group grid2
+
+```{r,echo=FALSE}
+  ggplot(data= SPNETDISP_G2, mapping = aes(x= Time, y= Disp, color = FncG, group= FncG)) +
+   labs(title ="Different functional group dispersal change with time in Grid 1.18 ", x ="Time points") +
+ geom_point()+geom_line()+
+theme_classic()
+```
+
+
+#plot per functional group grid3
+```{r,echo=FALSE}
+  ggplot(data= SPNETDISP_G3, mapping = aes(x= Time, y= Disp, color = FncG, group= FncG)) +
+   labs(title ="Different functional group dispersal change with time in Grid 1.13 ", x ="Time points") +
+ geom_point()+geom_line()+
+theme_classic()
+```
+
+
+#plot per functional group grid4
+```{r,echo=FALSE}
+  ggplot(data= SPNETDISP_G4, mapping = aes(x= Time, y= Disp, color = FncG, group= FncG)) +
+   labs(title ="Different functional group dispersal change with time in Grid 1.09 ", x ="Time points") +
+ geom_point()+geom_line()+
+theme_classic()
+```
+
+#plot per functional group grid5
+```{r,echo=FALSE}
+  ggplot(data= SPNETDISP_G5, mapping = aes(x= Time, y= Disp, color = FncG, group= FncG)) +
+   labs(title ="Different functional group dispersal change with time in Grid 1.02 ", x ="Time points") +
+ geom_point()+geom_line()+
+theme_classic()
+```
+
+
+#plot per functional group grid6
+```{r,echo=FALSE}
+  ggplot(data= SPNETDISP_G6, mapping = aes(x= Time, y= Disp, color = FncG, group= FncG)) +
+   labs(title ="Different functional group dispersal change with time in Grid 0.92 ", x ="Time points") +
+ geom_point()+geom_line()+
+theme_classic()
+```
+
+
+#plot per functional group grid7
+```{r,echo=FALSE}
+  ggplot(data= SPNETDISP_G7, mapping = aes(x= Time, y= Disp, color = FncG, group= FncG)) +
+   labs(title ="Different functional group dispersal change with time in Grid 0.86 ", x ="Time points") +
+ geom_point()+geom_line()+
+theme_classic()
+```
+
+
+#plot per functional group grid8
+```{r,echo=FALSE}
+  ggplot(data= SPNETDISP_G8, mapping = aes(x= Time, y= Disp, color = FncG, group= FncG)) +
+   labs(title ="Different functional group dispersal change with time in Grid 0.77 ", x ="Time points") +
+ geom_point()+geom_line()+
+theme_classic()
+```
+
+
+#plot per functional group grid9
+```{r,echo=FALSE}
+  ggplot(data= SPNETDISP_G9, mapping = aes(x= Time, y= Disp, color = FncG, group= FncG)) +
+   labs(title ="Different functional group dispersal change with time in Grid 0.72 ", x ="Time points") +
+ geom_point()+geom_line()+
+theme_classic()
+```
+
+
+#plot per functional group grid10
+```{r,echo=FALSE}
+  ggplot(data= SPNETDISP_G10, mapping = aes(x= Time, y= Disp, color = FncG, group= FncG)) +
+   labs(title ="Different functional group dispersal change with time in Grid 0.6 ", x ="Time points") +
+ geom_point()+geom_line()+
+theme_classic()
+```
+
+#plot per Grid BF
+```{r,echo=FALSE}
+  ggplot(data= SPNETDISP_BF, mapping = aes(x= Time, y= Disp, color = Grid, group= Grid)) +
+ geom_point()+geom_line()+
+  labs(title ="Bacteria-feeder dispersal change between grids ", x ="Time points")+
+theme_classic()
+```
+
+
+#plot per Grid ROTIFER
+```{r,echo=FALSE}
+  ggplot(data= SPNETDISP_ROT, mapping = aes(x= Time, y= Disp, color = Grid, group= Grid)) +
+ geom_point()+geom_line()+
+   labs(title ="Rotifer dispersal change between grids ", x ="Time points")+
+theme_classic()
+```
+
+
+#plot per Grid FF
+```{r,echo=FALSE}
+  ggplot(data= SPNETDISP_FF, mapping = aes(x= Time, y= Disp, color = Grid, group= Grid)) +
+ geom_point()+geom_line()+
+   labs(title ="Fungi-feeder dispersal change between grids ", x ="Time points")+
+theme_classic()
+```
+
+
+#plot per Grid PF
+```{r,echo=FALSE}
+  ggplot(data= SPNETDISP_PF, mapping = aes(x= Time, y= Disp, color = Grid, group= Grid)) +
+ geom_point()+geom_line()+
+   labs(title ="Plant-feeder dispersal change between grids ", x ="Time points")+
+theme_classic()
+```
+
+
+#plot per Grid predator
+```{r,echo=TRUE}
+  ggplot(data= SPNETDISP_PRE, mapping = aes(x= Time, y= Disp, color = Grid, group= Grid)) +
+ geom_point()+geom_line()+
+   labs(title ="Predator dispersal change between grids ", x ="Time points")+
+theme_classic()
+```
+

@@ -1,0 +1,805 @@
+---
+title: "RotTemChan"
+output:
+  pdf_document: default
+  html_document: default
+---
+```{r,include=FALSE}
+# Read libraries
+library(tidyverse)
+library(ggplot2)
+library(rcompanion)
+library(viridis)
+```
+
+```{r,include=TRUE}
+#transform the data
+ROT$Abd_T= transformTukey(ROT$Abd,plotit = FALSE)
+ROT_1_1<-subset(ROT,Grid=="R1.29"&Time=="1")
+ROT_1_2<-subset(ROT,Grid=="R1.29"&Time=="2")
+ROT_1_3<-subset(ROT,Grid=="R1.29"&Time=="3")
+ROT_1_4<-subset(ROT,Grid=="R1.29"&Time=="4")
+ROT_1_5<-subset(ROT,Grid=="R1.29"&Time=="5")
+ROT_1_6<-subset(ROT,Grid=="R1.29"&Time=="6")
+```
+```{r,include=TRUE}
+
+ggplot(ROT_1_1,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 1.29 at 1st sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+
+
+```{r,include=TRUE}
+ggplot(ROT_1_2,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 1.29 at 2nd sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+ggplot(ROT_1_3,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 1.29 at 3rd sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+
+ggplot(ROT_1_4,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 1.29 at 4th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+
+ggplot(ROT_1_5,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 1.29 at 5th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+
+ggplot(ROT_1_6,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 1.29 at 6th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+
+```{r,include=TRUE}
+#transform the data
+ROT$Abd_T= transformTukey(ROT$Abd,plotit = FALSE)
+ROT_2_1<-subset(ROT,Grid=="R1.18"&Time=="1")
+ROT_2_2<-subset(ROT,Grid=="R1.18"&Time=="2")
+ROT_2_3<-subset(ROT,Grid=="R1.18"&Time=="3")
+ROT_2_4<-subset(ROT,Grid=="R1.18"&Time=="4")
+ROT_2_5<-subset(ROT,Grid=="R1.18"&Time=="5")
+ROT_2_6<-subset(ROT,Grid=="R1.18"&Time=="6")
+```
+
+```{r,include=TRUE}
+
+ggplot(ROT_2_1,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 1.18 at 1st sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+
+ggplot(ROT_2_2,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 1.18 at 2nd sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+
+ggplot(ROT_2_3,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 1.18 at 3rd sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+
+ggplot(ROT_2_4,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 1.18 at 4th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+
+ggplot(ROT_2_5,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 1.18 at 5th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+
+ggplot(ROT_2_6,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 1.18 at 6th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+
+```{r,include=TRUE}
+#transform the data
+ROT$Abd_T= transformTukey(ROT$Abd,plotit = FALSE)
+ROT_3_1<-subset(ROT,Grid=="R1.13"&Time=="1")
+ROT_3_2<-subset(ROT,Grid=="R1.13"&Time=="2")
+ROT_3_3<-subset(ROT,Grid=="R1.13"&Time=="3")
+ROT_3_4<-subset(ROT,Grid=="R1.13"&Time=="4")
+ROT_3_5<-subset(ROT,Grid=="R1.13"&Time=="5")
+ROT_3_6<-subset(ROT,Grid=="R1.13"&Time=="6")
+```
+
+
+```{r,include=TRUE}
+
+ggplot(ROT_3_1,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 1.13 at 1st sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+
+ggplot(ROT_3_2,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 1.13 at 2nd sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+
+```{r,include=TRUE}
+
+ggplot(ROT_3_3,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 1.13 at 3rd sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+
+ggplot(ROT_3_4,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 1.13 at 4th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+
+ggplot(ROT_3_5,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 1.13 at 5th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+
+ggplot(ROT_3_6,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 1.13 at 6th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+#transform the data
+ROT$Abd_T= transformTukey(ROT$Abd,plotit = FALSE)
+ROT_4_1<-subset(ROT,Grid=="R1.09"&Time=="1")
+ROT_4_2<-subset(ROT,Grid=="R1.09"&Time=="2")
+ROT_4_3<-subset(ROT,Grid=="R1.09"&Time=="3")
+ROT_4_4<-subset(ROT,Grid=="R1.09"&Time=="4")
+ROT_4_5<-subset(ROT,Grid=="R1.09"&Time=="5")
+ROT_4_6<-subset(ROT,Grid=="R1.09"&Time=="6")
+```
+```{r,include=TRUE}
+
+ggplot(ROT_4_1,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 1.09 at 1st sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+
+ggplot(ROT_4_2,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 1.09 at 2nd sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+
+ggplot(ROT_4_3,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 1.09 at 3rd sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+
+ggplot(ROT_4_4,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 1.09 at 4th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+
+ggplot(ROT_4_5,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 1.09 at 5th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+
+ggplot(ROT_4_6,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 1.09 at 6th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+
+```{r,include=TRUE}
+#transform the data
+ROT$Abd_T= transformTukey(ROT$Abd,plotit = FALSE)
+ROT_5_1<-subset(ROT,Grid=="R1.02"&Time=="1")
+ROT_5_2<-subset(ROT,Grid=="R1.02"&Time=="2")
+ROT_5_3<-subset(ROT,Grid=="R1.02"&Time=="3")
+ROT_5_4<-subset(ROT,Grid=="R1.02"&Time=="4")
+ROT_5_5<-subset(ROT,Grid=="R1.02"&Time=="5")
+ROT_5_6<-subset(ROT,Grid=="R1.02"&Time=="6")
+```
+
+```{r,include=TRUE}
+
+ggplot(ROT_5_1,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 1.02 at 1st sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+
+```{r,include=TRUE}
+
+ggplot(ROT_5_2,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 1.02 at 2nd sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+
+ggplot(ROT_5_3,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 1.02 at 3rd sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+
+```{r,include=TRUE}
+
+ggplot(ROT_5_4,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 1.02 at 4th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+
+```{r,include=TRUE}
+
+ggplot(ROT_5_5,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 1.02 at 5th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+
+```{r,include=TRUE}
+
+ggplot(ROT_5_6,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 1.02 at 6th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+
+```{r,include=TRUE}
+#transform the data
+ROT$Abd_T= transformTukey(ROT$Abd,plotit = FALSE)
+ROT_6_1<-subset(ROT,Grid=="R0.92"&Time=="1")
+ROT_6_2<-subset(ROT,Grid=="R0.92"&Time=="2")
+ROT_6_3<-subset(ROT,Grid=="R0.92"&Time=="3")
+ROT_6_4<-subset(ROT,Grid=="R0.92"&Time=="4")
+ROT_6_5<-subset(ROT,Grid=="R0.92"&Time=="5")
+ROT_6_6<-subset(ROT,Grid=="R0.92"&Time=="6")
+```
+
+```{r,include=TRUE}
+
+ggplot(ROT_6_1,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 0.92 at 1st sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+
+ggplot(ROT_6_2,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 0.92 at 2nd sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+
+```{r,include=TRUE}
+
+ggplot(ROT_6_3,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 0.92 at 3rd sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+
+ggplot(ROT_6_4,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 0.92 at 4th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+
+
+```{r,include=TRUE}
+
+ggplot(ROT_6_5,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 0.92 at 5th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+
+```{r,include=TRUE}
+
+ggplot(ROT_6_6,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 0.92 at 6th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+
+```{r,include=TRUE}
+#transform the data
+ROT$Abd_T= transformTukey(ROT$Abd,plotit = FALSE)
+ROT_7_1<-subset(ROT,Grid=="R0.86"&Time=="1")
+ROT_7_2<-subset(ROT,Grid=="R0.86"&Time=="2")
+ROT_7_3<-subset(ROT,Grid=="R0.86"&Time=="3")
+ROT_7_4<-subset(ROT,Grid=="R0.86"&Time=="4")
+ROT_7_5<-subset(ROT,Grid=="R0.86"&Time=="5")
+ROT_7_6<-subset(ROT,Grid=="R0.86"&Time=="6")
+```
+
+```{r,include=TRUE}
+
+ggplot(ROT_7_1,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 0.86 at 1st sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+
+```{r,include=TRUE}
+
+ggplot(ROT_7_2,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 0.86 at 2nd sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+
+```{r,include=TRUE}
+
+ggplot(ROT_7_3,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 0.86 at 3rd sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+
+ggplot(ROT_7_4,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 0.86 at 4th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+
+ggplot(ROT_7_5,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 0.86 at 5th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+
+ggplot(ROT_7_6,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 0.86 at 6th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+#transform the data
+ROT$Abd_T= transformTukey(ROT$Abd,plotit = FALSE)
+ROT_8_1<-subset(ROT,Grid=="R0.77"&Time=="1")
+ROT_8_2<-subset(ROT,Grid=="R0.77"&Time=="2")
+ROT_8_3<-subset(ROT,Grid=="R0.77"&Time=="3")
+ROT_8_4<-subset(ROT,Grid=="R0.77"&Time=="4")
+ROT_8_5<-subset(ROT,Grid=="R0.77"&Time=="5")
+ROT_8_6<-subset(ROT,Grid=="R0.77"&Time=="6")
+```
+
+```{r,include=TRUE}
+
+ggplot(ROT_8_1,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 0.77 at 1st sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+
+```{r,include=TRUE}
+
+ggplot(ROT_8_2,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 0.77 at 2nd sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+
+ggplot(ROT_8_3,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 0.77 at 3rd sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+
+ggplot(ROT_8_4,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 0.77 at 4th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+
+ggplot(ROT_8_5,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 0.77 at 5th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+
+ggplot(ROT_8_6,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 0.77 at 6th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+
+
+```{r,include=TRUE}
+#transform the data
+ROT$Abd_T= transformTukey(ROT$Abd,plotit = FALSE)
+ROT_9_1<-subset(ROT,Grid=="R0.72"&Time=="1")
+ROT_9_2<-subset(ROT,Grid=="R0.72"&Time=="2")
+ROT_9_3<-subset(ROT,Grid=="R0.72"&Time=="3")
+ROT_9_4<-subset(ROT,Grid=="R0.72"&Time=="4")
+ROT_9_5<-subset(ROT,Grid=="R0.72"&Time=="5")
+ROT_9_6<-subset(ROT,Grid=="R0.72"&Time=="6")
+```
+
+```{r,include=TRUE}
+
+ggplot(ROT_9_1,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 0.72 at 1st sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+```{r,include=TRUE}
+
+ggplot(ROT_9_2,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 0.72 at 2nd sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+
+ggplot(ROT_9_3,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 0.72 at 3rd sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+
+ggplot(ROT_9_4,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 0.72 at 4th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+
+ggplot(ROT_9_5,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 0.72 at 5th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+
+
+```{r,include=TRUE}
+
+ggplot(ROT_9_6,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 0.72 at 6th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+
+
+```{r,include=TRUE}
+#transform the data
+ROT$Abd_T= transformTukey(ROT$Abd,plotit = FALSE)
+ROT_10_1<-subset(ROT,Grid=="R0.6"&Time=="1")
+ROT_10_2<-subset(ROT,Grid=="R0.6"&Time=="2")
+ROT_10_3<-subset(ROT,Grid=="R0.6"&Time=="3")
+ROT_10_4<-subset(ROT,Grid=="R0.6"&Time=="4")
+ROT_10_5<-subset(ROT,Grid=="R0.6"&Time=="5")
+ROT_10_6<-subset(ROT,Grid=="R0.6"&Time=="6")
+```
+
+```{r,include=TRUE}
+
+ggplot(ROT_10_1,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 0.6 at 1st sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+
+ggplot(ROT_10_2,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 0.6 at 2nd sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+
+ggplot(ROT_10_3,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 0.6 at 3rd sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+
+ggplot(ROT_10_4,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 0.6 at 4th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r,include=TRUE}
+
+ggplot(ROT_10_5,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 0.6 at 5th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
+
+
+```{r,include=TRUE}
+
+ggplot(ROT_10_6,aes(Xaxis,Yaxis,size=factor(Abd_T),color=factor(Abd_T)))+
+  labs(title="Rotifer in Grid 0.6 at 6th sampling time")+
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
+  coord_cartesian(xlim = c(0, 80), ylim = c(0, 60))+
+  geom_point()+
+  theme_bw()
+```
