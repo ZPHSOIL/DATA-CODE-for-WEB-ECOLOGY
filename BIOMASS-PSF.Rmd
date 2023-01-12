@@ -1,0 +1,103 @@
+---
+title: "PSF-TBM"
+output: html_document
+---
+
+```{r setup, include=TRUE}
+library(readxl)
+library(tidyverse)
+library(ggplot2)
+library(rcompanion) 
+library(ggpubr)
+library(dplyr)
+library(car)
+
+library(lmPerm)
+library(foreign)
+library(MASS)
+theme_set(theme_classic())
+PSF_TM$GRID<- factor(PSF_TM$GRID,levels = unique(PSF_TM$GRID))
+```
+
+
+```{r setup, include=TRUE}
+    ggplot(TB,aes(GRID,Dicbm))+
+  labs(y="Biomass of Dicot/g")+
+  geom_bar(stat = "identity")+
+ labs(title = "Biomass change of Plantago Lanceolata(dicot) across grids")
+  
+```
+
+
+
+```{r setup, include=TRUE}
+    ggplot(TB,aes(GRID,Mocbm))+
+  labs(y="Biomass of monocot/g")+
+  geom_bar(stat = "identity")+
+labs(title = "Biomass chang of Lolium Perenne(monocot) across grids")
+  
+```
+
+
+
+
+```{r setup, include=TRUE}
+ggplot(PSF_TM,aes(GRID,DicNum))+
+  labs(y="Number of dicots")+
+  geom_bar(stat = "identity")+
+  geom_text(aes(label=DicNum), vjust=1.6, color="white", size=3.5)
+```
+
+
+
+```{r , include=TRUE}
+ggplot(PSF_TM,mapping=aes(x=GRID,y=TB))+
+  geom_bar(stat = "identity",position=position_dodge())+
+  labs(y="Total biomass/g")+
+  scale_fill_grey()+
+  labs(title = "Total biomass change across grids")
+
+```
+
+
+
+
+
+```{r }
+
+M1<-lm(TB~GRID,data=PSF_TM)
+print(M1)
+M2<-lm(Mocbm~GRID,data=PSF_TM)
+print(M2)
+M3<-lm(Dicbm~GRID,data=PSF_TM)
+print(M3)
+```
+
+
+```{r }
+plot(TB~GRID,data=PSF_TM)
+abline(lm(TB~GRID,data=PSF_TM))
+```
+
+
+
+
+```{r }
+plot(Mocbm~GRID,data=PSF_TM)
+abline(lm(Mocbm~GRID,data=PSF_TM))
+```
+
+```{r }
+plot(Dicbm~GRID,data=PSF_TM)
+abline(lm(Dicbm~GRID,data=PSF_TM))
+```
+
+```{r }
+ggplot(PSF_A,aes(x=Grid,y=Biomass,fill=Species))+
+  geom_bar(stat = "identity",position = position_dodge2(preserve = "total"))+
+  labs(y="Total biomass/g")+
+  scale_fill_grey()+
+  labs(title = "Total biomass change across grids")
+
+```
+

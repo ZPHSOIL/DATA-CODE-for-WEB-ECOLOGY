@@ -1,0 +1,418 @@
+---
+title: "coverage and biomass"
+output:
+  word_document: default
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=TRUE}
+library(readxl)
+library(ggplot2)
+library(tidyverse)
+library(psych)
+library(lmtest)
+library(car)
+library(lme4)
+library(jtools)
+library(MASS)
+library(rstatix)
+library(scales)
+library(cowplot)
+PCC$Grid<-as.factor(PCC$Grid)
+PCC$Time<-as.numeric(PCC$Time)
+theme_set(theme_bw())
+```
+
+#plant coverage at T4 linear
+```{r,echo=FALSE }
+PC_4<-subset(PCC,Time=="4")
+C4M<-glm(PlantF~Clusterness,family=poisson,data = PC_4)
+summary(C4M)
+Anova(C4M)
+```
+
+
+
+
+#plant coverage at T4 linear
+```{r,echo=FALSE }
+PC_4<-subset(PCC,Time=="4")
+PC4M<-glm.nb(PlantF~Clusterness,data = PC_4)
+summary(PC4M)
+Anova(PC4M)
+```
+
+
+
+```{r warning=FALSE,echo=FALSE, paged.print=TRUE}
+
+PCM<- glm.nb(PlantF~Clusterness,data = PC_4)
+
+PCM.coef<-data.frame(summary(PCM)$coefficients)
+PCM.coef
+
+
+PCM.inter <- PCM.coef[1,1] 
+PCM.cluster <- PCM.coef[2,1]
+
+PCM4.test=function(x){exp(PCM.inter+PCM.cluster *x)} 
+
+
+
+PC4F<- ggplot(PC_4, aes(x=Clusterness, y=PlantF))+
+  geom_point(size=1.5)+ 
+  theme(panel.grid = element_blank())+
+  stat_function(fun =PCM4.test,color="blue" )
+  
+ 
+PC4F
+
+PC4FT<-PC4F+labs(x="Regularity of plant spatial network",y="Total plant pixel counts at week 6")+theme(axis.title = element_text(size = 12))
+ 
+  
+PC4FT
+save_plot("PC4FT.png",PC4FT)
+```
+
+
+
+#plot 
+```{r }
+reg1<-lm(PlantF~Clusterness,data = PC_4)
+reg1
+c1<-ggplot(PC_4,aes(x=Clusterness,y=PlantF))+
+  geom_point()+theme_classic()+labs(x="Regularity of plant spatial network ", y="Plant cover at week 6 ")+theme(axis.title.y = element_text(size=12),axis.title.x = element_text(size=12))
+
+C1<-c1+geom_abline(intercept = 943487, slope =7650472,color="blue4")
+C1
+
+
+```
+
+
+
+
+#plant coverage at T7 linear
+```{r,echo=FALSE }
+PC_7<-subset(PCC,Time=="7")
+PC7M<-glm.nb(PlantF~Clusterness,data = PC_7)
+summary(PC7M)
+Anova(PC7M)
+```
+
+
+
+```{r warning=FALSE,echo=FALSE, paged.print=TRUE}
+
+PCM7<- glm.nb(PlantF~Clusterness,data = PC_7)
+
+PCM7.coef<-data.frame(summary(PCM7)$coefficients)
+PCM7.coef
+
+
+PCM7.inter <- PCM7.coef[1,1] 
+PCM7.cluster <- PCM7.coef[2,1]
+
+PCM7.test=function(x){exp(PCM7.inter+PCM7.cluster *x)} 
+
+
+
+PC7F<- ggplot(PC_7, aes(x=Clusterness, y=PlantF))+
+  geom_point(size=1.5)+ 
+  theme(panel.grid = element_blank())+
+  stat_function(fun =PCM7.test,color="blue" )
+  
+ 
+PC7F
+
+PC7FT<-PC7F+labs(x="Regularity of plant spatial network", y="Total plant pixel counts at week 9")+theme(axis.title = element_text(size = 12))
+
+ 
+  
+PC7FT
+save_plot("PC4FT.png",PC7FT)
+```
+
+
+
+#plot with linear
+```{r }
+reg2<-lm(PlantF~Clusterness,data =  PC_7)
+reg2
+c2<-ggplot(PC_7,aes(x=Clusterness,y=PlantF))+
+  geom_point()+theme_classic()+labs(x="Regularity of plant spatial network ", y="Plant cover at T7")+theme(axis.title.y = element_text(size=12),axis.title.x = element_text(size=12))
+
+C2<-c2+geom_abline(intercept = 643450, slope = 6761513,color="blue4")
+C2
+```
+
+
+
+
+
+
+
+#plant total biomass
+```{r,echo=FALSE }
+library("ggpubr")
+# Density plot
+ggdensity(PC_7$TB, fill = "lightgray")
+# QQ plot
+ggqqplot(PC_7$TB)
+PC_7 %>% shapiro_test(TB)
+```
+
+
+#plant BIOMASS at T7 linear
+```{r,echo=FALSE }
+PC_7<-subset(PCC,Time=="7")
+TB7M<-lm(TB~Clusterness,data = PC_7)
+summary(TB7M)
+Anova(TB7M)
+df.residual(TB7M)
+
+```
+
+
+
+
+
+
+
+
+#plant BIOMASS at T7 QUADRATIC
+```{r,echo=FALSE }
+
+TB7M1<-lm(TB~I(Clusterness^2)+Clusterness,data = PC_7)
+summary(TB7M1)
+Anova(TB7M1)
+
+```
+
+
+#plot with linear
+```{r,echo=FALSE }
+reg3<-lm(TB~Clusterness,data =  PC_7)
+reg3
+b1<-ggplot(PC_7,aes(x=Clusterness,y=TB))+
+  geom_point()+theme_classic()+labs(x="Regularity of plant spatial networks ", y="Succeeding plant biomass at week 9 (g)")
+
+B1<-b1+ theme(axis.title.x = element_blank(),axis.title.y = element_text(size=12))+ylim(10,45)
+B1
+
+```
+
+```{r,echo=FALSE }
+library("ggpubr")
+# Density plot
+ggdensity(PC_7$PTB, fill = "lightgray")
+# QQ plot
+ggqqplot(PC_7$PTB)
+PC_7 %>% shapiro_test(PTB)
+```
+
+
+#plant PREVIOUS PLANT BIOMASS
+```{r,echo=FALSE }
+PC_7<-subset(PCC,Time=="7")
+PTBM<-lm(PTB~Clusterness,data = PC_7)
+summary(PTBM)
+Anova(PTBM)
+df.residual(PTBM)
+```
+
+#plot with linear
+```{r,echo=FALSE }
+reg4<-lm(PTB~Clusterness,data =  PC_7)
+reg4
+b2<-ggplot(PC_7,aes(x=Clusterness,y=PTB))+
+  geom_point()+theme_classic()+labs(x="Regularity of plant spatial networks ", y="Previous plant biomass (g)")
+
+B2<-b2+geom_abline(intercept = 145.94, slope = -24.93,color="blue")+theme(axis.title.x = element_blank(),axis.title.y = element_text(size=12),axis.title = element_text(size = 12))+ylim(105,135)
+B2
+```
+
+
+```{r}
+library("cowplot")
+P1<-ggdraw() +
+  draw_plot(PC4FT, x = 0, y = 0, width = .5, height =1) +
+  draw_plot(PC7FT, x = 0.5, y = 0, width = .5, height = 1) +
+  draw_plot_label(label = c("(c)", "(d)"), size = 10,
+                  x = c(0, 0.5), y = c(1, 1))
+
+P2<-ggdraw() +
+  draw_plot(B2, x = 0, y = 0, width = .5, height =1) +
+  draw_plot(B1, x = 0.5, y = 0, width = .5, height = 1) +
+  draw_plot_label(label = c("(a)", "(b)"), size = 10,
+                  x = c(0, 0.5), y = c(1, 1))
+P1
+P2
+```
+
+
+
+```{r}
+PLOT1<-plot_grid(B2,B1,PC4FT,PC7FT,labels=c("(a)","(b)","(c)","(d)"),nrow = 2,align = "v")
+save_plot("PLOT1.png",PLOT1,ncol = 2,nrow = 2,base_aspect_ratio = 1.3)
+PLOT1
+```
+
+
+
+
+#plant BIOMASS monocot
+```{r,echo=FALSE }
+COT_M<-subset(COT,Species=="Monocot")
+COT_M
+
+MTBM<-lm(TB~Clusterness,data = COT_M)
+summary(MTBM)
+Anova(MTBM)
+df.residual(MTBM)
+
+```
+```{r,echo=FALSE }
+library("ggpubr")
+# Density plot
+ggdensity(COT_M$TB, fill = "lightgray")
+# QQ plot
+ggqqplot(COT_M$TB)
+COT_M %>% shapiro_test(TB)
+```
+
+#plant BIOMASS MONOCOT QUADRATIC
+```{r,echo=FALSE }
+
+MTBM1<-lm(TB~I(Clusterness^2)+Clusterness,data = COT_M)
+summary(MTBM1)
+Anova(MTBM1)
+
+```
+#plot with linear
+```{r,echo=FALSE }
+regM<-lm(TB~Clusterness,data =  COT_M)
+regM
+MonoB<-ggplot(COT_M,aes(x=Clusterness,y=TB))+
+  geom_point()+theme_classic()+labs(x="Regularity of plant spatial networks ", y="Lolium perenne biomass at week 9 (g)")
+
+MB<-MonoB+ theme(axis.title.x = element_blank(),axis.title.y = element_text(size=11))+ylim(9,35)
+MB
+
+```
+#plant BIOMASS monocot
+```{r,echo=FALSE }
+COT_D<-subset(COT,Species=="Dicot")
+COT_D
+
+DTBM<-lm(TB~Clusterness,data = COT_D)
+summary(DTBM)
+Anova(DTBM)
+df.residual(DTBM)
+
+```
+
+```{r,echo=FALSE }
+library("ggpubr")
+# Density plot
+ggdensity(COT_D$TB, fill = "lightgray")
+# QQ plot
+ggqqplot(COT_D$TB)
+COT_D %>% shapiro_test(TB)
+```
+
+#plant BIOMASS MONOCOT QUADRATIC
+```{r,echo=FALSE }
+
+DTBM1<-lm(TB~I(Clusterness^2)+Clusterness,data = COT_D)
+summary(DTBM1)
+Anova(DTBM1)
+
+```
+
+
+#plot with linear
+```{r,echo=FALSE }
+regD<-lm(TB~Clusterness,data =  COT_D)
+regD
+DiB<-ggplot(COT_D,aes(x=Clusterness,y=TB))+
+  geom_point()+theme_classic()+labs(x="Regularity of plant spatial networks ", y="Plantago lanceolata biomass at week 9 (g)")
+
+DB<-DiB+ theme(axis.title.x = element_blank(),axis.title.y = element_text(size=11))+ylim(1,5)
+DB
+
+```
+```{r,echo=FALSE }
+library("cowplot")
+FB<-ggdraw() +
+  draw_plot(MB, x = 0, y = 0, width = .5, height =1) +
+  draw_plot(DB, x = 0.5, y = 0, width = .5, height = 1) +
+  draw_plot_label(label = c("(a)", "(b)"), size = 10,
+                  x = c(0, 0), y = c(1, 1))
+FB
+save_plot("seperate species biomass.png",FB)
+```
+
+
+#  monocot/dicot ratio
+```{r,echo=FALSE }
+TBRM<-lm(Ratio~Clusterness,data = COT)
+summary(TBRM)
+Anova(TBRM)
+df.residual(TBRM)
+
+```
+```{r,echo=FALSE }
+library("ggpubr")
+# Density plot
+ggdensity(COT$Ratio, fill = "lightgray")
+# QQ plot
+ggqqplot(COT$Ratio)
+COT %>% shapiro_test(Ratio)
+```
+
+```{r,echo=FALSE }
+
+TBRM1<-lm(Ratio~I(Clusterness^2)+Clusterness,data = COT)
+summary(TBRM1)
+Anova(TBRM1)
+
+```
+
+
+
+
+
+
+#plot with linear
+```{r,echo=FALSE }
+regR<-lm(Ratio~Clusterness,data = COT)
+regR
+MDR<-ggplot(COT,aes(x=Clusterness,y=Ratio))+
+  geom_point()+theme(axis.title.y = element_text(size=11)+ylim(1,15))+theme_classic()+labs(x="Regularity of plant spatial networks ", y="Biomass ratio between Lolium and Plantago ")
+ 
+MDR
+
+
+
+```
+
+```{r}
+
+
+PLOTB<-ggdraw() +
+  draw_plot(MB, x = 0, y = 0, width = .5, height =1) +
+  draw_plot(DB, x = 0.5, y = 0, width = .5, height = 1) +
+  draw_plot_label(label = c("(a)", "(b)"), size = 10,
+                  x = c(0, 0.5), y = c(1, 1))
+
+PLOTR<-ggdraw() +
+  draw_plot(MDR, x = 0, y = 0, width = 1, height = 1) +
+  draw_plot_label(label = "(c)", size = 10,
+                  x = 0, y = 1)
+save_plot("PLOTB.png",PLOTB)
+save_plot("PLOTR.png",PLOTR)
+
+
+```
