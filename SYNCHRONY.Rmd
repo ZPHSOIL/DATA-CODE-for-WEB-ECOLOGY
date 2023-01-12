@@ -1,0 +1,157 @@
+---
+title: "Synchronystability"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+library(readxl)
+library(tidyverse)
+library(ggplot2)
+library(rcompanion) 
+library(ggpubr)
+library(dplyr)
+library(car)
+library(lmPerm)
+library(foreign)
+library(MASS)
+library(afex)
+library(lme4)
+SYN$Grid<- factor(SYN$Grid,levels = unique(SYN$Grid))
+SYN$Location<- factor(SYN$Location)
+theme_set(theme_classic())
+```
+
+
+#Shapiro test indicates a non normal distributed data 
+```{r }
+SYM<-lmer(Synchrony~Clusterness+(1|Location),data = SYN)
+summary(SYM)
+anova(SYM)
+plot(SYM)
+shapiro.test(resid(SYM))
+```
+
+```{r,echo=FALSE}
+#Transform the data 
+SYN$Synchrony_T= transformTukey(SYN$Synchrony,plotit = FALSE)
+```
+
+```{r }
+SYM_C<-mixed(Synchrony~Clusterness+(1|Grid/Location),data = SYN,method="PB",args_test = list(nsim = 100))
+summary(SYM_C)
+anova(SYM_C)
+```
+
+
+
+#permutation test using package afex:Clusterness as the fixed effect
+```{r }
+SYM_C<-mixed(Synchrony~Clusterness+(1|Grid),data = SYN,method="PB",args_test = list(nsim = 10000))
+summary(SYM_C)
+anova(SYM_C)
+```
+
+
+```{r }
+STM_C<-mixed(ComStab~Clusterness+(1|Grid),data = SYN,method="PB",args_test = list(nsim = 10000))
+summary(STM_C)
+anova(STM_C)
+```
+
+
+#permutation test using package afex:distance as the fixed effect
+```{r }
+SYM_D<-mixed(Synchrony~Distance+(1|Location),data = SYN,method="PB",check_contrasts=FALSE,args_test = list(nsim = 1000),expand_re = TRUE)
+summary(SYM_D)
+```
+
+```{r, include=TRUE}
+ggscatter(SYN,x="Distance",y="Synchrony",add = "reg.line")
+```
+
+
+
+```{r }
+SYM_1<-lmer(Synchrony~Distance+(1|Grid),data = SYN)
+summary(SYM_1)
+anova(SYM_1)
+plot(SYM_1)
+shapiro.test(resid(SYM_1))
+```
+
+
+
+#permutation test using package afex:distance as the fixed effect
+```{r }
+SYM_D<-mixed(Synchrony~Distance+(1|Location),data = SYN,method="PB",check_contrasts=FALSE,args_test = list(nsim = 1000),expand_re = TRUE)
+summary(SYM_D)
+```
+
+#plots included
+```{r pressure, echo=FALSE}
+SYN$Grid<- factor(SYN$Grid,levels = unique(SYN$Grid))
+ggscatter( SYN,x="Distance",y="Synchrony",color="Grid",palette = "jco",add = "reg.line")+
+labs(title="Synchrony change across distance")+
+  facet_wrap(~Grid,nrow=2)+
+  theme_classic()
+```
+
+#plots included
+```{r pressure, echo=FALSE}
+SYN$Grid<- factor(SYN$Grid,levels = unique(SYN$Grid))
+ggscatter( SYN,x="Distance",y="ComStab",color="Grid",palette = "jco",add = "reg.line")+
+labs(title="Stability change across distance")+
+  facet_wrap(~Grid,nrow=2)+
+  theme_classic()
+```
+
+# synchrony variance for each grid 
+```{r}
+SYNG1<-subset(SYN, Grid=="G1")
+SYNG2<-subset(SYN, Grid=="G2")
+SYNG3<-subset(SYN, Grid=="G3")
+SYNG4<-subset(SYN, Grid=="G4")
+SYNG5<-subset(SYN, Grid=="G5")
+SYNG6<-subset(SYN, Grid=="G6")
+SYNG7<-subset(SYN, Grid=="G7")
+SYNG8<-subset(SYN, Grid=="G8")
+SYNG9<-subset(SYN, Grid=="G9")
+SYNG10<-subset(SYN, Grid=="G10")
+```
+
+
+#VARIANCE 
+```{r}
+SYN1<-SYNG1$Synchrony
+var(SYN1)
+SYN2<-SYNG2$Synchrony
+var(SYN2)
+SYN3<-SYNG3$Synchrony
+var(SYN3)
+SYN4<-SYNG4$Synchrony
+var(SYN4)
+SYN5<-SYNG5$Synchrony
+var(SYN5)
+SYN6<-SYNG6$Synchrony
+var(SYN6)
+SYN7<-SYNG7$Synchrony
+var(SYN7)
+SYN8<-SYNG8$Synchrony
+var(SYN8)
+SYN9<-SYNG9$Synchrony
+var(SYN9)
+SYN10<-SYNG10$Synchrony
+var(SYN10)
+```
+
+#PLOT
+```{r}
+ggscatter(VARSYN,x="Grid",y="Variance")
+
+```
+
+
+#Get mean for each group
+```{r}
+aggregate(SYN[, 4:5], list(SYN$Grid), mean)
+```

@@ -1,0 +1,155 @@
+---
+title: "SHANNON??S DIVERSITY"
+output: pdf_document
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
+
+
+```{r }
+library(readxl)
+library(tidyverse)
+library(ggplot2)
+library(rcompanion) 
+library(ggpubr)
+library(dplyr)
+library(car)
+library(e1071)
+library(afex)
+library(MASS)
+library(lme4)
+library(cowplot)
+library(viridis)
+DSD$Grid<- factor(DSD$Grid,levels = unique(DSD$Grid))
+DSD$Location<-factor(DSD$Location)
+DSD$Time<-as.numeric(DSD$Time)
+DSD$NodeType<-factor(DSD$NodeType)
+theme_set(theme_bw())
+```
+
+
+#interactive effects of time,clusterness with a nested random effect of nodes and grid on shannon's diversity
+```{r,echo=FALSE}
+SDM<-lmer(SD~TimePoint*Clusterness+(1|Grid/Location),data = DSD)
+summary(SDM)
+anova(SDM)
+plot(SDM)
+shapiro.test(resid(SDM))
+```
+
+
+#data transform does not meet the standard for normal distribution
+```{r,echo=FALSE}
+#Transform the data 
+DSD$SD_T= transformTukey(DSD$SD,plotit = FALSE)
+head
+```
+
+
+```{r,echo=TRUE }
+ggplot(DSD, aes(x = SD)) + geom_density()
+```    
+
+
+
+#using afex package:clusterness as a main effect in the model 
+```{r warning=FALSE, , echo=FALSE, paged.print=TRUE}
+DSD_S<-subset(DSD,Time!="0")
+head(DSD_S)
+SDM_AC<-mixed(SD~Time*Clusterness+(1|Node:Grid)+(1|Grid),data = DSD_S,method="PB",args_test = list(nsim = 10000))
+summary(SDM_AC)
+anova(SDM_AC)
+```
+
+
+## DIVERSITY CHANGE ACROSS TIME
+```{r pressure, echo=FALSE}
+DSD_S<-subset(DSD,Time!="0")
+ggplot(DSD_S, aes(x=Time,y=SD))+
+  geom_point()+
+  geom_smooth(method = "lm",se=FALSE)+
+labs(title="Shannon's diversity change across time",x="Sampling time (days)",y="Shannon's diversity")+
+  theme_classic()
+```
+
+
+```{r , echo=FALSE}
+
+# 0. Build linear model 
+model <- lmer(SD~Time*Clusterness+(1|Location),data=DSD_S)
+
+# 1. Add predictions 
+pred.int <- predict(model, interval = "prediction")
+mydata <- cbind(DSD_S, pred.int)
+# 2. Regression line + confidence intervals
+library("ggplot2")
+p <- ggplot(mydata, aes(Time,  SD)) +
+  geom_point() +
+  stat_smooth(method = lm)
+SDP<-p +theme_classic()+labs(x="Sampling Time (days) ",y="Shannon's diversity")+scale_x_continuous(breaks=seq(0,90,15))
+SDP
+save_plot("SDP.png",SDP)
+```
+
+##shannon's diversity change across time
+```{r , echo=FALSE}
+ggplot(DSD_S, aes(x=TimePoint, y=SD))+
+  geom_point()+
+  geom_smooth()+
+  labs(x="Time for soil fauna sampling ",y="Shannon's diversity")+
+  theme_classic()
+```
+
+
+
+
+
+
+
+```{r warning=FALSE,echo=FALSE, paged.print=TRUE}
+
+SHDM<- mixed(SD~Time*Clusterness+(1|Node:Grid)+(1|Grid),REML=F,data = DSD_S,method="S",check_contrasts = F)
+
+SHDM.coef<-data.frame(summary(SHDM)$coefficients)
+SHDM.coef
+
+mean.cluster <- mean(DSD_S$Clusterness)
+mean.cluster
+
+SHDM.inter <- SHDM.coef[1,1] 
+SHDM.cluster <- SHDM.coef[3,1]
+SHDM.time <- SHDM.coef[2,1]
+SHDM.clutim <- SHDM.coef[4,1]
+
+
+SHDM.test.SD<- function(x){SHDM.inter+SHDM.cluster *mean.cluster+SHDM.time*x+SHDM.clutim*mean.cluster*x}
+
+
+
+
+  
+
+SDF<- ggplot(DSD_S, aes(x=Time, y=SD,color = NodeType))+
+  geom_point(size=1.5)+ 
+  scale_color_manual(values = c("#000000","#999999"))+
+  theme(panel.grid = element_blank())+
+  stat_function(fun = SHDM.test.SD,colour ="blue")
+ 
+  
+ 
+SDF
+
+SDFT<-SDF+scale_x_continuous(breaks=seq(0,90,15))+labs(x="Sampling time (days)",y="Shannon's diversity  ")+ theme(
+  legend.key.size = unit(0.25, "cm"),
+  legend.key.width = unit(0.25,"cm"),
+  legend.position = "none",
+  legend.direction = "vertical",
+  axis.title = element_text(size = 12))
+  
+SDFT
+save_plot("SDFT.png",SDFT)
+```

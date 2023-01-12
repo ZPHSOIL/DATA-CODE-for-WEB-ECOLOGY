@@ -1,0 +1,785 @@
+---
+title: "Communitystructure"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+library(readxl)
+library(tidyverse)
+library(ggplot2)
+library(rcompanion) 
+library(ggpubr)
+library(dplyr)
+library(car)
+library(e1071)
+library(afex)
+```
+
+#interactive effects of time,clusterness with a nested random effect of nodes and grid on shannon's diversity
+```{r setup, include=TRUE}
+SDM<-lmer(SD~TimePoint*Clusterness+(1|Grid/Location),data = DSD)
+summary(SDM)
+anova(SDM)
+plot(SDM)
+shapiro.test(resid(SDM))
+```
+
+
+
+#data transform does not meet the standard for normal distribution
+```{r,echo=FALSE}
+#Transform the data 
+DSD$SD_T= transformTukey(DSD$SD,plotit = FALSE)
+```
+
+
+#using afex package to model
+```{r }
+SDM_AC<-mixed(SD~TimePoint*Clusterness+(1|Grid/Location),data = DSD,method="PB",check.contrasts=FALSE,args.test = list(nsim = 2000))
+summary(SDM_AC)
+```
+
+
+
+
+#using afex package to model
+```{r }
+SDM_AD<-mixed(SD~TimePoint*Distance+(1|Grid/Location),data = DSD,method="PB",check.contrasts=FALSE,args.test = list(nsim = 2000))
+summary(SDM_AD)
+```
+
+```{r }
+DSD$Grid<- factor(DSD$Grid,levels = unique(DSD$Grid))
+ggplot( DSD,aes(x=TimePoint,y=SD,color=Clusterness))+
+  geom_point()+
+labs(title="Shannon's diversity change across time")+
+  facet_wrap(~Grid,nrow=2)+
+  theme_classic()
+```
+
+
+```{r }
+DSD$Grid<- factor(DSD$Grid,levels = unique(DSD$Grid))
+ggplot( DSD,aes(x=Distance,y=SD,color=Clusterness))+
+  geom_point()+
+labs(title="Shannon's diversity change across distance")+
+  facet_wrap(~Grid,nrow=2)+
+  theme_classic()
+```
+
+
+#SHANNON'S DIVERSITY PER GRID ALONG TIME
+
+#lmPerm: Exact argument for evaluate all permutations
+```{r }
+G0_6<- subset(SD, TimePoint!="1"&Clusterness=="0.6")
+summary(lmp(SD~TimePoint,data = G0_6))
+```
+
+
+
+```{r }
+SD06<- aov(SD~TimePoint,data = G0_6)
+summary(SD06)
+ggline( G0_6,x= "TimePoint",y= "SD",
+       add= c("mean_se","jitter"),point.color = "blue",
+       ylab = "Shannon's diversity",xlab= "Timepoint")
+```
+
+
+```{r }
+G0_72<- subset(COM1, TimePoint!="1"&Clusterness=="0.72")
+summary(lmp(SD~TimePoint,data = G0_72))
+```
+
+
+```{r }
+
+SD072<- aov(SD~TimePoint,data = G0_72)
+summary(SD072)
+ggline( G0_72,x= "TimePoint",y= "SD",
+       add= c("mean_se","jitter"),point.color = "blue",
+       ylab = "Shannon's diversity",xlab= "Timepoint")
+```
+
+
+
+
+```{r}
+G0_77<- subset(COM1, TimePoint!="1"&Clusterness=="0.6")
+summary(lmp(SD~TimePoint,data = G0_77))
+```
+
+
+
+```{r }
+
+SD077<- aov(SD~TimePoint,data = G0_77)
+summary(SD077)
+ggline( G0_77,x= "TimePoint",y= "SD",
+       add= c("mean_se","jitter"),point.color = "blue",
+       ylab = "Shannon's diversity",xlab= "Timepoint")
+```
+
+```{r setup, include=TRUE}
+G0_86<- subset(COM1, TimePoint!="1"&Clusterness=="0.86")
+summary(lmp(SD~TimePoint,data = G0_86))
+```
+
+
+
+```{r setup, include=TRUE}
+
+SD086<- aov(SD~TimePoint,data = G0_86)
+summary(SD086)
+ggline( G0_86,x= "TimePoint",y= "SD",
+       add= c("mean_se","jitter"),point.color = "blue",
+       ylab = "Shannon's diversity",xlab= "Timepoint")
+```
+
+
+```{r setup, include=TRUE}
+G0_92<- subset(COM1, TimePoint!="1"&Clusterness=="0.92")
+summary(lmp(SD~TimePoint,data = G0_92))
+```
+
+
+```{r setup, include=TRUE}
+
+SD092<- aov(SD~TimePoint,data = G0_92)
+summary(SD092)
+ggline( G0_92,x= "TimePoint",y= "SD",
+       add= c("mean_se","jitter"),point.color = "blue",
+       ylab = "Shannon's diversity",xlab= "Timepoint")
+```
+
+```{r setup, include=TRUE}
+G1_02<- subset(COM1, TimePoint!="1"&Clusterness=="0.6")
+summary(lmp(SD~TimePoint,data = G1_02))
+```
+
+```{r setup, include=TRUE}
+
+SD102<- aov(SD~TimePoint,data = G1_02)
+summary(SD102)
+ggline( G1_02,x= "TimePoint",y= "SD",
+       add= c("mean_se","jitter"),point.color = "blue",
+       ylab = "Shannon's diversity",xlab= "Timepoint")
+```
+
+```{r setup, include=TRUE}
+
+lm(SD~TimePoint,G1_02)
+
+plot(SD~TimePoint,G1_02)+
+  abline(-0.0385,0.03024)
+
+```
+
+```{r setup, include=TRUE}
+G1_09<- subset(COM1, TimePoint!="1"&Clusterness=="1.09")
+summary(lmp(SD~TimePoint,data = G1_09))
+```
+
+
+```{r setup, include=TRUE}
+
+SD109<- aov(SD~TimePoint,data = G1_09)
+summary(SD109)
+ggline( G1_09,x= "TimePoint",y= "SD",
+       add= c("mean_se","jitter"),point.color = "blue",
+       ylab = "Shannon's diversity",xlab= "Timepoint")
+```
+
+
+
+```{r setup, include=TRUE}
+G1_13<- subset(COM1, TimePoint!="1"&Clusterness=="1.13")
+summary(lmp(SD~TimePoint,data = G1_13))
+```
+
+
+```{r setup, include=TRUE}
+
+SD113<- aov(SD~TimePoint,data = G1_13)
+summary(SD113)
+ggline( G1_13,x= "TimePoint",y= "SD",
+       add= c("mean_se","jitter"),point.color = "blue",
+       ylab = "Shannon's diversity",xlab= "Timepoint")
+```
+
+
+```{r setup, include=TRUE}
+G1_18<- subset(COM1, TimePoint!="1"&Clusterness=="1.18")
+summary(lmp(SD~TimePoint,data = G1_18))
+```
+
+
+```{r setup, include=TRUE}
+
+SD118<- aov(SD~TimePoint,data = G1_18)
+summary(SD118)
+ggline( G1_18,x= "TimePoint",y= "SD",
+       add= c("mean_se","jitter"),point.color = "blue",
+       ylab = "Shannon's diversity",xlab= "Timepoint")
+```
+
+
+```{r setup, include=TRUE}
+G1_29<- subset(COM1,TimePoint!="1"&Clusterness=="1.29")
+summary(lmp(SD~TimePoint,data = G1_29))
+```
+
+
+```{r setup, include=TRUE}
+
+SD129<- aov(SD~TimePoint,data = G1_29)
+summary(SD129)
+ggline( G1_29,x= "TimePoint",y= "SD",
+       add= c("mean_se","jitter"),point.color = "blue",
+       ylab = "Shannon's diversity",xlab= "Timepoint")
+```
+
+
+#linear regression of shannon's diversity for each grid over time: correlation
+
+#pearson correlation Grid0.6=0.3369;0.1287(include TP1)
+```{r setup, include=TRUE}
+scatter.smooth(x=G0_6$TimePoint,y=G0_6$SD,main="G0.6Diversity~Time")
+
+plot(density(G0_6$TimePoint),main="Density Plot: Timepoint", ylab="Frequency", sub=paste("Skewness:", round(e1071::skewness(G0_6$TimePoint), 2)))
+plot(density(G0_6$SD),main="Density Plot: SD", ylab="Frequency", sub=paste("Skewness:", round(e1071::skewness(G0_6$SD), 2)))
+
+cor(G0_6$TimePoint,G0_6$SD)
+```
+
+
+##pearson correlation Grid0.72=0.6337;0.4282(include TP1)
+```{r setup, include=TRUE}
+scatter.smooth(x=G0_72$TimePoint,y=G0_72$SD,main="G0.72Diversity~Time")
+
+plot(density(G0_72$SD),main="Density Plot: SD", ylab="Frequency", sub=paste("Skewness:", round(e1071::skewness(G0_72$SD), 2)))
+
+cor(G0_72$TimePoint,G0_72$SD)
+
+
+```
+
+
+#pearson correlation Grid0.77=0.625;0.44789(include TP1)
+```{r setup, include=TRUE}
+scatter.smooth(x=G0_77$TimePoint,y=G0_77$SD,main="G0.77Diversity~Time")
+
+plot(density(G0_77$SD),main="Density Plot: SD", ylab="Frequency", sub=paste("Skewness:", round(e1071::skewness(G0_77$SD), 2)))
+
+cor(G0_77$TimePoint,G0_77$SD)
+```
+
+
+#pearson correlation Grid0.86=0.389;0.0787(TP1 included)
+```{r setup, include=TRUE}
+scatter.smooth(x=G0_86$TimePoint,y=G0_86$SD,main="G0.86Diversity~Time")
+cor(G0_86$TimePoint,G0_86$SD)
+```
+
+
+
+#pearson correlation Grid0.92=0.56???0.4(TP1 included)
+```{r setup, include=TRUE}
+scatter.smooth(x=G0_92$TimePoint,y=G0_92$SD,main="G0.92Diversity~Time")
+cor(G0_92$TimePoint,G0_92$SD)
+```
+
+
+#pearson correlation Grid1.02=0.7428???0.504(TP1 included)
+```{r setup, include=TRUE}
+scatter.smooth(x=G1_02$TimePoint,y=G1_02$SD,main="G1.02Diversity~Time")
+cor(G1_02$TimePoint,G1_02$SD)
+```
+
+
+#pearson correlation Grid1.09=0.654???0.4708
+```{r setup, include=TRUE}
+scatter.smooth(x=G1_09$TimePoint,y=G1_09$SD,main="G1.09Diversity~Time")
+cor(G1_09$TimePoint,G1_09$SD)
+```
+
+
+#pearson correlation Grid1.13=0.619???0.2945
+```{r setup, include=TRUE}
+scatter.smooth(x=G1_13$TimePoint,y=G1_13$SD,main="G1.13Diversity~Time")
+cor(G1_13$TimePoint,G1_13$SD)
+```
+
+
+#pearson correlation Grid1.18=0.4289???0.202
+```{r setup, include=TRUE}
+scatter.smooth(x=G1_18$TimePoint,y=G1_18$SD,main="G1.18Diversity~Time")
+cor(G1_18$TimePoint,G1_18$SD)
+```
+
+
+#pearson correlation Grid1.=0.349???0.1789
+```{r setup, echo=TRUE}
+scatter.smooth(x=G1_29$TimePoint,y=G1_29$SD,main="G1.29Diversity~Time")
+cor(G1_29$TimePoint,G1_29$SD)
+```
+
+
+
+#Correaltion between diversity and time in each grid
+```{r setup, include=TRUE}
+ggplot(COR,aes(x=Grid,y=CorDT))+geom_point()+
+  theme_classic()+
+  labs(title="Coorelation value between shannon's diversity and time(no TP1) in each grid")
+```
+
+
+```{r setup, include=TRUE}
+ggplot(COR,aes(x=Grid,y=CorDT1))+geom_point()+
+  theme_classic()+
+  labs(title="Coorelation value between shannon's diversity and time in each grid")
+```
+
+
+
+
+#SHANNON'S DIVERSITY PER TIME ALONG GRIDS
+
+#lmPerm: Exact argument for evaluate all permutations
+```{r setup, include=TRUE}
+T2<- subset(COM1, TimePoint=="2")
+summary(lmp(SD~Clusterness+(1|Grid),data = T2))
+```
+
+
+
+```{r setup, include=TRUE}
+
+
+SDt2<- aov(SD~Grid,data = T2)
+summary(SDt2)
+ggline( T2,x= "Grid",y= "SD",
+       add= c("mean_se","jitter"),point.color = "blue",
+       ylab = "Shannon's diversity",xlab= "Grid")
+```
+
+
+
+
+
+```{r setup, include=TRUE}
+T3<- subset(COM1, TimePoint=="3")
+summary(lmp(SD~Clusterness+(1|Grid),data = T3))
+```
+
+```{r setup, include=TRUE}
+
+
+SDt3<- aov(SD~Grid,data = T3)
+summary(SDt3)
+ggline( T3,x= "Grid",y= "SD",
+       add= c("mean_se","jitter"),
+       ylab = "Shannon's diversity",xlab= "Grid")
+```
+
+```{r setup, include=TRUE}
+T4<- subset(COM1, TimePoint=="4")
+summary(lmp(SD~Clusterness+(1|Grid),data = T4))
+```
+
+```{r setup, include=TRUE}
+
+lm(SD~Clusterness,T4)
+
+plot(SD~Clusterness,T4)+
+  abline(0.18523,-0.09978)
+
+```
+
+```{r setup, include=TRUE}
+T5<- subset(COM1, TimePoint=="5")
+summary(lmp(SD~Clusterness+(1|Grid),data = T5))
+```
+
+```{r setup, include=TRUE}
+
+
+SDt5<- aov(SD~Grid,data = T5)
+summary(SDt5)
+ggline( T5,x= "Grid",y= "SD",
+       add= c("mean_se","jitter"),
+       ylab = "Shannon's diversity",xlab= "Grid")
+```
+
+```{r setup, include=TRUE}
+T6<- subset(COM1, TimePoint=="6")
+summary(lmp(SD~Clusterness+(1|Grid),data = T6))
+```
+
+
+
+```{r setup, include=TRUE}
+
+
+SDt6<- aov(SD~Grid,data = T6)
+summary(SDt6)
+ggline( T6,x= "Grid",y= "SD",
+       add= c("mean_se","jitter"),
+       ylab = "Shannon's diversity",xlab= "Grid")
+```
+
+
+```{r setup, include=TRUE}
+T7<- subset(COM1, TimePoint=="7")
+summary(lmp(SD~Clusterness+(1|Grid),data = T7))
+```
+
+
+
+
+```{r setup, include=TRUE}
+
+
+SDt7<- aov(SD~Grid,data = T7)
+summary(SDt7)
+ggline( T7,x= "Grid",y= "SD",
+       add= c("mean_se","jitter"),
+       ylab = "Shannon's diversity",xlab= "Grid")
+```
+
+
+
+##pearson correlation between diversity and grid at TP2: 0.05406
+```{r setup, include=TRUE}
+TP2<- subset(COM1, TimePoint=="2")
+scatter.smooth(x=TP2$Grid,y=TP2$SD,main="Diversity~Grid")
+
+plot(density(TP2$SD),main="Density Plot: SD", ylab="Frequency", sub=paste("Skewness:", round(e1071::skewness(G0_72$SD), 2)))
+
+cor(TP2$Grid,TP2$SD)
+
+```
+
+##pearson correlation between diversity and grid at TP3: -0.02611
+```{r setup, include=TRUE}
+TP3<- subset(COM1, TimePoint=="3")
+scatter.smooth(x=TP3$Grid,y=TP3$SD,main="Diversity~Grid")
+
+plot(density(TP3$SD),main="Density Plot: SD", ylab="Frequency", sub=paste("Skewness:", round(e1071::skewness(G0_72$SD), 2)))
+
+cor(TP3$Grid,TP3$SD)
+
+```
+
+##pearson correlation between diversity and grid at TP4: -0.2172
+```{r setup, include=TRUE}
+TP4<- subset(COM1, TimePoint=="4")
+scatter.smooth(x=TP4$Grid,y=TP4$SD,main="Diversity~Grid")
+
+plot(density(TP4$SD),main="Density Plot: SD", ylab="Frequency", sub=paste("Skewness:", round(e1071::skewness(G0_72$SD), 2)))
+
+cor(TP4$Grid,TP4$SD)
+```
+##pearson correlation between diversity and grid at TP5: -0.15049
+```{r setup, include=TRUE}
+TP5<- subset(COM1, TimePoint=="5")
+scatter.smooth(x=TP5$Grid,y=TP5$SD,main="Diversity~Grid")
+
+plot(density(TP5$SD),main="Density Plot: SD", ylab="Frequency", sub=paste("Skewness:", round(e1071::skewness(G0_72$SD), 2)))
+
+cor(TP5$Grid,TP5$SD)
+```
+
+##pearson correlation between diversity and grid at TP6: -0.04443
+```{r setup, include=TRUE}
+TP6<- subset(COM1, TimePoint=="6")
+scatter.smooth(x=TP6$Grid,y=TP6$SD,main="Diversity~Grid")
+
+plot(density(TP6$SD),main="Density Plot: SD", ylab="Frequency", sub=paste("Skewness:", round(e1071::skewness(G0_72$SD), 2)))
+
+cor(TP6$Grid,TP6$SD)
+```
+##pearson correlation between diversity and grid at TP7: 0.04225
+```{r setup, include=TRUE}
+TP7<- subset(COM1, TimePoint=="7")
+scatter.smooth(x=TP7$Grid,y=TP7$SD,main="Diversity~Grid")
+
+plot(density(TP7$SD),main="Density Plot: SD", ylab="Frequency", sub=paste("Skewness:", round(e1071::skewness(G0_72$SD), 2)))
+
+cor(TP7$Grid,TP7$SD)
+```
+```{r setup, include=TRUE}
+ggplot(CORDT,aes(x=TimePoint,y=corDG))+geom_point()+
+  theme_classic()+
+  labs(title="Coorelation value between shannon's diversity and Grid at each timepoint")
+```
+
+
+#SHANNON'S DIVERSITY PER GRID ALONG DISTANCE
+
+#lmPerm: Exact argument for evaluate all permutations
+```{r setup, include=TRUE}
+G1<- subset(COM1, Clusterness=="0.6"&TimePoint!="1")
+summary(lmp(SD~Distance+(1|Grid),data = G1))
+```
+
+
+```{r setup, include=TRUE}
+G0_6<- subset(COM1, TimePoint!="1"&Clusterness=="0.6")
+
+SD06D<- aov(SD~Distance,data = G0_6)
+summary(SD06D)
+ggline( G0_6,x= "Distance",y= "SD",
+       add= c("mean_se","jitter"),point.color = "blue",
+       ylab = "Shannon's diversity",xlab= "Distance from the central node")
+```
+
+
+```{r setup, include=TRUE}
+G2<- subset(COM1, Clusterness=="0.72"&TimePoint!="1")
+summary(lmp(SD~Distance+(1|Grid),data = G2))
+```
+
+```{r setup, include=TRUE}
+G0_72<- subset(COM1,TimePoint!="1"&Clusterness=="0.72")
+
+SD072D<- aov(SD~Distance,data = G0_72)
+summary(SD072D)
+ggline( G0_72,x= "Distance",y= "SD",
+       add= c("mean_se","jitter"),point.color = "blue",
+       ylab = "Shannon's diversity",xlab= "Distance from the central node")
+```
+
+
+
+
+```{r setup, include=TRUE}
+G3<- subset(COM1, TimePoint!="1"&Clusterness=="0.77")
+summary(lmp(SD~Distance+(1|Grid),data = G3))
+```
+
+
+
+
+```{r setup, include=TRUE}
+G0_77<- subset(COM,TimePoint!="1"&Grid=="G0.77")
+
+SD077D<- aov(SD~Distance,data = G0_77)
+summary(SD077D)
+ggline( G0_77,x= "Distance",y= "SD",
+       add= c("mean_se","jitter"),point.color = "blue",
+       ylab = "Shannon's diversity",xlab= "Distance from the central node")
+```
+
+
+
+
+```{r setup, include=TRUE}
+G4<- subset(COM1, TimePoint!="1"&Clusterness=="0.86")
+summary(lmp(SD~Distance+(1|Grid),data = G4))
+```
+
+
+
+
+```{r setup, include=TRUE}
+G0_86<- subset(COM, TimePoint!="1"&Grid=="G0.86")
+
+SD086D<- aov(SD~Distance,data = G0_86)
+summary(SD086D)
+ggline( G0_86,x= "Distance",y= "SD",
+       add= c("mean_se","jitter"),point.color = "blue",
+       ylab = "Shannon's diversity",xlab= "Distance from the central node")
+```
+
+
+```{r setup, include=TRUE}
+G5<- subset(COM1, TimePoint!="1"&Clusterness=="0.92")
+summary(lmp(SD~Distance+(1|Grid),data = G5))
+```
+
+
+
+
+```{r setup, include=TRUE}
+G0_92<- subset(COM, TimePoint!="1"&Grid=="G0.92")
+
+SD092D<- aov(SD~Distance,data = G0_92)
+summary(SD092D)
+ggline( G0_92,x= "Distance",y= "SD",
+       add= c("mean_se","jitter"),point.color = "blue",
+       ylab = "Shannon's diversity",xlab= "Distance from the central node")
+```
+
+```{r setup, include=TRUE}
+G6<- subset(COM1, TimePoint!="1"&Clusterness=="1.02")
+summary(lmp(SD~Distance+(1|Grid),data = G6))
+```
+
+
+
+
+```{r setup, include=TRUE}
+G1_02<- subset(COM, TimePoint!="1"&Grid=="G1.02")
+SD102D<- aov(SD~Distance,data = G1_02)
+summary(SD102D)
+ggline( G1_02,x= "Distance",y= "SD",
+       add= c("mean_se","jitter"),
+       ylab = "Shannon's diversity",xlab= "Distance from the central node")
+```
+
+
+```{r setup, include=TRUE}
+G7<- subset(COM1, TimePoint!="1"&Clusterness=="1.09")
+summary(lmp(SD~Distance+(1|Grid),data = G7))
+```
+
+```{r setup, include=TRUE}
+G1_09<- subset(COM, TimePoint!="1"&Grid=="G1.09")
+SD109D<- aov(SD~Distance,data = G1_09)
+summary(SD109D)
+ggline( G1_09,x= "Distance",y= "SD",
+       add= c("mean_se","jitter"),
+       ylab = "Shannon's diversity",xlab= "Distance from the central node")
+```
+
+```{r setup, include=TRUE}
+G8<- subset(COM1, TimePoint!="1"&Clusterness=="1.13")
+summary(lmp(SD~Distance+(1|Grid),data = G8))
+```
+
+
+
+```{r setup, include=TRUE}
+G1_13<- subset(COM, TimePoint!="1"&Grid=="G1.13")
+SD113D<- aov(SD~Distance,data = G1_13)
+summary(SD113D)
+ggline( G1_13,x= "Distance",y= "SD",
+       add= c("mean_se","jitter"),
+       ylab = "Shannon's diversity",xlab= "Distance from the central node")
+```
+
+```{r setup, include=TRUE}
+G9<- subset(COM1, TimePoint!="1"&Clusterness=="1.18")
+summary(lmp(SD~Distance+(1|Grid),data = G9))
+```
+
+
+
+```{r setup, include=TRUE}
+G1_18<- subset(COM, TimePoint!="1"&Grid=="G1.18")
+SD118D<- aov(SD~Distance,data = G1_18)
+summary(SD118D)
+ggline( G1_18,x= "Distance",y= "SD",
+       add= c("mean_se","jitter"),
+       ylab = "Shannon's diversity",xlab= "Distance from the central node")
+```
+
+
+
+```{r setup, include=TRUE}
+G10<- subset(COM1, TimePoint!="1"&Clusterness=="1.29")
+summary(lmp(SD~Distance+(1|Grid),data = G10))
+```
+
+
+
+```{r setup, include=TRUE}
+G1_29<- subset(COM, TimePoint!="1"&Grid=="G1.29")
+SD129D<- aov(SD~Distance,data = G1_29)
+summary(SD129D)
+ggline( G1_29,x= "Distance",y= "SD",
+       add= c("mean_se","jitter"),
+       ylab = "Shannon's diversity",xlab= "Distance from the central node")
+```
+
+
+
+##pearson correlation between diversity and distance at Grid0.6: -0.4842497
+```{r setup, include=TRUE}
+scatter.smooth(x=G0_6$Distance,y=G0_6$SD,main="G0.6Diversity~Distance")
+
+cor(G0_6$Distance,G0_6$SD)
+
+```
+##pearson correlation between diversity and distance at Grid0.72: 0.05012
+```{r setup, include=TRUE}
+scatter.smooth(x=G0_72$Distance,y=G0_72$SD,main="G0.72Diversity~Distance")
+
+cor(G0_72$Distance,G0_72$SD)
+
+```
+
+
+##pearson correlation between diversity and distance at Grid0.77: -0.1531
+```{r setup, include=TRUE}
+scatter.smooth(x=G0_77$Distance,y=G0_77$SD,main="G0.77Diversity~Distance")
+
+cor(G0_77$Distance,G0_77$SD)
+
+```
+
+##pearson correlation between diversity and distance at Grid0.86: -0.4737925
+```{r setup, include=TRUE}
+scatter.smooth(x=G0_86$Distance,y=G0_86$SD,main="G0.86Diversity~Distance")
+
+cor(G0_86$Distance,G0_86$SD)
+
+```
+##pearson correlation between diversity and distance at Grid0.92: -0.21755
+```{r setup, include=TRUE}
+scatter.smooth(x=G0_92$Distance,y=G0_92$SD,main="G0.92Diversity~Distance")
+
+cor(G0_92$Distance,G0_92$SD)
+
+```
+
+##pearson correlation between diversity and distance at Grid1.02: -0.148559
+```{r setup, include=TRUE}
+scatter.smooth(x=G1_02$Distance,y=G1_02$SD,main="G1.02Diversity~Distance")
+
+cor(G1_02$Distance,G1_02$SD)
+
+```
+
+##pearson correlation between diversity and distance at Grid1.09: -0.2612645
+```{r setup, include=TRUE}
+scatter.smooth(x=G1_09$Distance,y=G1_09$SD,main="G1.09Diversity~Distance")
+
+cor(G1_09$Distance,G1_09$SD)
+
+```
+
+##pearson correlation between diversity and distance at Grid1.13: -0.2676533
+```{r setup, include=TRUE}
+scatter.smooth(x=G1_13$Distance,y=G1_13$SD,main="G1.13Diversity~Distance")
+
+cor(G1_13$Distance,G1_13$SD)
+
+```
+
+
+##pearson correlation between diversity and distance at Grid1.18:-0.340112
+```{r setup, include=TRUE}
+scatter.smooth(x=G1_18$Distance,y=G1_18$SD,main="G1.18Diversity~Distance")
+
+cor(G1_18$Distance,G1_18$SD)
+
+```
+
+##pearson correlation between diversity and distance at Grid1.29:-0.2788426
+```{r setup, include=TRUE}
+scatter.smooth(x=G1_29$Distance,y=G1_29$SD,main="G1.29Diversity~Distance")
+
+cor(G1_29$Distance,G1_29$SD)
+
+```
+
+```{r setup, include=TRUE}
+ggplot(CORDD,aes(x=Grid,y=corDD))+geom_point()+
+  theme_classic()+
+  labs(title="Coorelation value between shannon's diversity and Distance at each Grid")
+```

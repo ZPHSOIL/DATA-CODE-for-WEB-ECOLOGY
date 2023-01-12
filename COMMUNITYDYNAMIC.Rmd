@@ -1,0 +1,851 @@
+---
+title: "community dynamic"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(codyn)
+library(readr)
+library(ggplot2)
+library(tidyverse)
+```
+
+##GRID0.6  
+```{r setup, include=TRUE}
+
+
+SpSyL1_1<-subset(G0_6T0T6, Location=="L2647")
+synchrony(SpSyL1_1,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric = "Gross")
+SpSyL1_2<-subset(G0_6T0T6, Location=="L6020")
+synchrony(SpSyL1_2,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric = "Gross")
+SpSyL1_3<-subset(G0_6T0T6, Location=="L4252")
+synchrony(SpSyL1_3,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric = "Gross")
+SpSyL1_4<-subset(G0_6T0T6, Location=="L4849")
+synchrony(SpSyL1_4,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric = "Gross")
+SpSyL1_5<-subset(G0_6T0T6, Location=="L5154")
+synchrony(SpSyL1_5,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric = "Gross")
+SpSyL1_6<-subset(G0_6T0T6, Location=="L6531")
+synchrony(SpSyL1_6,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric = "Gross")
+SpSyL1_7<-subset(G0_6T0T6, Location=="L6731")
+synchrony(SpSyL1_7,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric = "Gross")
+SpSyL1_8<-subset(G0_6T0T6, Location=="L3626")
+synchrony(SpSyL1_8,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric = "Gross")
+SpSyL1_9<-subset(G0_6T0T6, Location=="L4030")
+synchrony(SpSyL1_9,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric = "Gross")
+```
+
+
+##GRID1.02  
+```{r setup, include=TRUE}
+
+SpSyL6_8<-subset(G1_02T0T6, Location=="L3230")
+synchrony(SpSyL6_8,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric = "Gross")
+SpSyL6_7<-subset(G1_02T0T6, Location=="L4434")
+synchrony(SpSyL6_7,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric = "Gross")
+SpSyL6_6<-subset(G1_02T0T6, Location=="L4138")
+synchrony(SpSyL6_6,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric = "Gross")
+SpSyL6_5<-subset(G1_02T0T6, Location=="L5324")
+synchrony(SpSyL6_5,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric = "Gross")
+SpSyL6_4<-subset(G1_02T0T6, Location=="L6028")
+synchrony(SpSyL6_4,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric = "Gross")
+SpSyL6_3<-subset(G1_02T0T6, Location=="L1728")
+synchrony(SpSyL6_3,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric = "Gross")
+SpSyL6_2<-subset(G1_02T0T6, Location=="L2152")
+synchrony(SpSyL6_2,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric = "Gross")
+SpSyL6_1<-subset(G1_02T0T6, Location=="L6155")
+synchrony(SpSyL6_1,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric = "Gross")
+SpSyL6_9<-subset(G1_02T0T6, Location=="L4030")
+synchrony(SpSyL6_9,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric = "Gross")
+```
+
+
+##GRID1.29  
+```{r setup, include=TRUE}
+SpSyL10_1<-subset(G1_29T0T6, Location=="L2015")
+synchrony(SpSyL10_1,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL10_2<-subset(G1_29T0T6, Location=="L2045")
+synchrony(SpSyL10_2,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL10_3<-subset(G1_29T0T6, Location=="L2030")
+synchrony(SpSyL10_3,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL10_4<-subset(G1_29T0T6, Location=="L6015")
+synchrony(SpSyL10_4,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL10_5<-subset(G1_29T0T6, Location=="L6030")
+synchrony(SpSyL10_5,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL10_6<-subset(G1_29T0T6, Location=="L6045")
+synchrony(SpSyL10_6,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL10_7<-subset(G1_29T0T6, Location=="L4045")
+synchrony(SpSyL10_7,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL10_8<-subset(G1_29T0T6, Location=="L4015")
+synchrony(SpSyL10_8,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL10_9<-subset(G1_29T0T6, Location=="L4030")
+synchrony(SpSyL10_9,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+```
+
+
+##GRID0.72 
+```{r setup, include=TRUE}
+SpSyL2_1<-subset(G0_72T0T6, Location=="L1412")
+synchrony(SpSyL2_1,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL2_2<-subset(G0_72T0T6, Location=="L2121")
+synchrony(SpSyL2_2,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL2_3<-subset(G0_72T0T6, Location=="L4653")
+synchrony(SpSyL2_3,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL2_4<-subset(G0_72T0T6, Location=="L5642")
+synchrony(SpSyL2_4,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL2_5<-subset(G0_72T0T6, Location=="L5833")
+synchrony(SpSyL2_5,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL2_6<-subset(G0_72T0T6, Location=="L5022")
+synchrony(SpSyL2_6,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL2_7<-subset(G0_72T0T6, Location=="L4820")
+synchrony(SpSyL2_7,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL2_8<-subset(G0_72T0T6, Location=="L4628")
+synchrony(SpSyL2_8,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL2_9<-subset(G0_72T0T6, Location=="L4030")
+synchrony(SpSyL2_9,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+```
+
+##GRID0.77 
+```{r setup, include=TRUE}
+SpSyL3_1<-subset(G0_77T0T6, Location=="L844")
+synchrony(SpSyL3_1,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL3_2<-subset(G0_77T0T6, Location=="L2137")
+synchrony(SpSyL3_2,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL3_3<-subset(G0_77T0T6, Location=="L2943")
+synchrony(SpSyL3_3,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL3_4<-subset(G0_77T0T6, Location=="L4515")
+synchrony(SpSyL3_4,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL3_5<-subset(G0_77T0T6, Location=="L5448")
+synchrony(SpSyL3_5,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL3_6<-subset(G0_77T0T6, Location=="L5442")
+synchrony(SpSyL3_6,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL3_7<-subset(G0_77T0T6, Location=="L5641")
+synchrony(SpSyL3_7,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL3_8<-subset(G0_77T0T6, Location=="L4939")
+synchrony(SpSyL3_8,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL3_9<-subset(G0_77T0T6, Location=="L4030")
+synchrony(SpSyL3_9,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+```
+
+##GRID0.86 
+```{r setup, include=TRUE}
+SpSyL4_1<-subset(G0_86T0T6, Location=="L6632")
+synchrony(SpSyL4_1,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL4_2<-subset(G0_86T0T6, Location=="L5018")
+synchrony(SpSyL4_2,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL4_3<-subset(G0_86T0T6, Location=="L1842")
+synchrony(SpSyL4_3,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL4_4<-subset(G0_86T0T6, Location=="L1528")
+synchrony(SpSyL4_4,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL4_5<-subset(G0_86T0T6, Location=="L1225")
+synchrony(SpSyL4_5,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL4_6<-subset(G0_86T0T6, Location=="L2525")
+synchrony(SpSyL4_6,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL4_7<-subset(G0_86T0T6, Location=="L3032")
+synchrony(SpSyL4_7,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL4_8<-subset(G0_86T0T6, Location=="L4117")
+synchrony(SpSyL4_8,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL4_9<-subset(G0_86T0T6, Location=="L4030")
+synchrony(SpSyL4_9,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+```
+
+##GRID0.92
+```{r setup, include=TRUE}
+SpSyL5_1<-subset(G0_92T0T6, Location=="L4756")
+synchrony(SpSyL5_1,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL5_2<-subset(G0_92T0T6, Location=="L6338")
+synchrony(SpSyL5_2,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL5_3<-subset(G0_92T0T6, Location=="L5917")
+synchrony(SpSyL5_3,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL5_4<-subset(G0_92T0T6, Location=="L2231")
+synchrony(SpSyL5_4,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL5_5<-subset(G0_92T0T6, Location=="L2337")
+synchrony(SpSyL5_5,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL5_6<-subset(G0_92T0T6, Location=="L5521")
+synchrony(SpSyL5_6,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL5_7<-subset(G0_92T0T6, Location=="L2924")
+synchrony(SpSyL5_7,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL5_8<-subset(G0_92T0T6, Location=="L4730")
+synchrony(SpSyL5_8,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL5_9<-subset(G0_92T0T6, Location=="L4030")
+synchrony(SpSyL5_9,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+```
+
+##GRID1.09
+```{r setup, include=TRUE}
+SpSyL7_1<-subset(G1_09T0T6, Location=="L5919")
+synchrony(SpSyL7_1,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL7_2<-subset(G1_09T0T6, Location=="L5742")
+synchrony(SpSyL7_2,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL7_3<-subset(G1_09T0T6, Location=="L4146")
+synchrony(SpSyL7_3,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL7_4<-subset(G1_09T0T6, Location=="L2917")
+synchrony(SpSyL7_4,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL7_5<-subset(G1_09T0T6, Location=="L3915")
+synchrony(SpSyL7_5,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL7_6<-subset(G1_09T0T6, Location=="L2537")
+synchrony(SpSyL7_6,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL7_7<-subset(G1_09T0T6, Location=="L2115")
+synchrony(SpSyL7_7,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL7_8<-subset(G1_09T0T6, Location=="L2029")
+synchrony(SpSyL7_8,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL7_9<-subset(G1_09T0T6, Location=="L4030")
+synchrony(SpSyL7_9,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+```
+
+##GRID1.13
+```{r setup, include=TRUE}
+SpSyL8_1<-subset(G1_13T0T6, Location=="L6623")
+synchrony(SpSyL8_1,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL8_2<-subset(G1_13T0T6, Location=="L2347")
+synchrony(SpSyL8_2,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL8_3<-subset(G1_13T0T6, Location=="L5556")
+synchrony(SpSyL8_3,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL8_4<-subset(G1_13T0T6, Location=="L3138")
+synchrony(SpSyL8_4,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL8_5<-subset(G1_13T0T6, Location=="L4320")
+synchrony(SpSyL8_5,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL8_6<-subset(G1_13T0T6, Location=="L2320")
+synchrony(SpSyL8_6,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL8_7<-subset(G1_13T0T6, Location=="L4935")
+synchrony(SpSyL8_7,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL8_8<-subset(G1_13T0T6, Location=="L5125")
+synchrony(SpSyL8_8,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL8_9<-subset(G1_13T0T6, Location=="L4030")
+synchrony(SpSyL8_9,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+```
+
+##GRID1.18
+```{r }
+SpSyL9_1<-subset(G1_18T0T6, Location=="L7640")
+synchrony(SpSyL9_1,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL9_2<-subset(G1_18T0T6, Location=="L1735")
+synchrony(SpSyL9_2,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL9_3<-subset(G1_18T0T6, Location=="L4749")
+synchrony(SpSyL9_3,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL9_4<-subset(G1_18T0T6, Location=="L5018")
+synchrony(SpSyL9_4,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL9_5<-subset(G1_18T0T6, Location=="L5029")
+synchrony(SpSyL9_5,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL9_6<-subset(G1_18T0T6, Location=="L2726")
+synchrony(SpSyL9_6,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL9_7<-subset(G1_18T0T6, Location=="L3819")
+synchrony(SpSyL9_7,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL9_8<-subset(G1_18T0T6, Location=="L3336")
+synchrony(SpSyL9_8,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+SpSyL9_9<-subset(G1_18T0T6, Location=="L4030")
+synchrony(SpSyL9_9,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+```
+
+#community diversity
+#Calculates Shannon???s or Inverse Simpson???s diversity of a community
+## GRID0.6
+```{r setup, include=TRUE}
+community_diversity(SpSyL1_1,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL1_2,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL1_3,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL1_4,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL1_5,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL1_6,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL1_7,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL1_8,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL1_9,time.var = "TimePoint",abundance.var = "Abundance")
+```
+
+## GRID0.72
+```{r setup, include=TRUE}
+community_diversity(SpSyL2_1,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL2_2,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL2_3,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL2_4,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL2_5,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL2_6,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL2_7,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL2_8,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL2_9,time.var = "TimePoint",abundance.var = "Abundance")
+```
+
+## GRID0.77
+```{r setup, include=TRUE}
+community_diversity(SpSyL3_1,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL3_2,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL3_3,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL3_4,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL3_5,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL3_6,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL3_7,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL3_8,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL3_9,time.var = "TimePoint",abundance.var = "Abundance")
+```
+
+## GRID0.86
+```{r setup, include=TRUE}
+community_diversity(SpSyL4_1,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL4_2,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL4_3,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL4_4,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL4_5,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL4_6,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL4_7,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL4_8,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL4_9,time.var = "TimePoint",abundance.var = "Abundance")
+```
+## GRID0.92
+```{r setup, include=TRUE}
+community_diversity(SpSyL5_1,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL5_2,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL5_3,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL5_4,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL5_5,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL5_6,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL5_7,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL5_8,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL5_9,time.var = "TimePoint",abundance.var = "Abundance")
+```
+
+## GRID1.02
+```{r setup, include=TRUE}
+community_diversity(SpSyL6_1,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL6_2,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL6_3,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL6_4,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL6_5,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL6_6,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL6_7,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL6_8,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL6_9,time.var = "TimePoint",abundance.var = "Abundance")
+```
+## GRID1.09
+```{r setup, include=TRUE}
+community_diversity(SpSyL7_1,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL7_2,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL7_3,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL7_4,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL7_5,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL7_6,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL7_7,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL7_8,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL7_9,time.var = "TimePoint",abundance.var = "Abundance")
+```
+
+## GRID1.13
+```{r setup, include=TRUE}
+community_diversity(SpSyL8_1,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL8_2,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL8_3,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL8_4,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL8_5,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL8_6,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL8_7,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL8_8,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL8_9,time.var = "TimePoint",abundance.var = "Abundance")
+```
+## GRID1.18
+```{r setup, include=TRUE}
+community_diversity(SpSyL9_1,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL9_2,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL9_3,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL9_4,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL9_5,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL9_6,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL9_7,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL9_8,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL9_9,time.var = "TimePoint",abundance.var = "Abundance")
+```
+## GRID1.29
+```{r setup, include=TRUE}
+community_diversity(SpSyL10_1,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL10_2,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL10_3,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL10_4,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL10_5,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL10_6,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL10_7,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL10_8,time.var = "TimePoint",abundance.var = "Abundance")
+community_diversity(SpSyL10_9,time.var = "TimePoint",abundance.var = "Abundance")
+```
+
+
+
+#community structure
+#Calculates species richness and evenness of a community
+## GRID0.6
+```{r setup, include=TRUE}
+community_structure(SpSyL1_1,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL1_2,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL1_3,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL1_4,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL1_5,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL1_6,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL1_7,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL1_8,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL1_9,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+```
+## GRID0.72
+```{r setup, include=TRUE}
+community_structure(SpSyL2_1,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL2_2,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL2_3,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL2_4,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL2_5,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL2_6,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL2_7,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL2_8,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL2_9,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+```
+
+## GRID0.77
+```{r setup, include=TRUE}
+community_structure(SpSyL3_1,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL3_2,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL3_3,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL3_4,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL3_5,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL3_6,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL3_7,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL3_8,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL3_9,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+```
+
+## GRID0.86
+```{r setup, include=TRUE}
+community_structure(SpSyL4_1,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL4_2,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL4_3,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL4_4,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL4_5,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL4_6,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL4_7,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL4_8,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL4_9,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+```
+
+## GRID0.92
+```{r setup, include=TRUE}
+community_structure(SpSyL5_1,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL5_2,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL5_3,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL5_4,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL5_5,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL5_6,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL5_7,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL5_8,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL5_9,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+```
+
+## GRID1.02
+```{r setup, include=TRUE}
+community_structure(SpSyL6_1,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL6_2,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL6_3,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL6_4,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL6_5,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL6_6,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL6_7,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL6_8,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL6_9,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+```
+
+## GRID1.09
+```{r setup, include=TRUE}
+community_structure(SpSyL7_1,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL7_2,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL7_3,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL7_4,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL7_5,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL7_6,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL7_7,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL7_8,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL7_9,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+```
+
+## GRID1.13
+```{r setup, include=TRUE}
+community_structure(SpSyL8_1,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL8_2,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL8_3,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL8_4,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL8_5,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL8_6,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL8_7,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL8_8,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL8_9,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+```
+## GRID1.18
+```{r setup, include=TRUE}
+community_structure(SpSyL9_1,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL9_2,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL9_3,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL9_4,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL9_5,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL9_6,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL9_7,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL9_8,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL9_9,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+```
+
+## GRID1.29
+```{r setup, include=TRUE}
+community_structure(SpSyL10_1,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL10_2,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL10_3,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL10_4,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL10_5,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL10_6,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL10_7,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL10_8,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+community_structure(SpSyL10_9,time.var = "TimePoint",abundance.var = "Abundance", metric = "Evar")
+```
+
+#community stability
+#Calculates the stability of the overall community over time as the temporal mean / temporal standard deviation of aggregate species abundances
+##GRID0.6 
+```{r setup, include=TRUE}
+community_stability(G0_6T0T6,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL1_1,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL1_2,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL1_3,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL1_4,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL1_5,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL1_6,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL1_7,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL1_8,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL1_9,time.var = "TimePoint",abundance.var = "Abundance")
+```
+##GRID0.72 
+```{r setup, include=TRUE}
+community_stability(G0_72T0T6,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL2_1,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL2_2,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL2_3,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL2_4,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL2_5,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL2_6,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL2_7,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL2_8,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL2_9,time.var = "TimePoint",abundance.var = "Abundance")
+```
+
+##GRID0.77 
+```{r setup, include=TRUE}
+community_stability(G0_77T0T6,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL3_1,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL3_2,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL3_3,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL3_4,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL3_5,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL3_6,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL3_7,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL3_8,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL3_9,time.var = "TimePoint",abundance.var = "Abundance")
+```
+##GRID0.86
+```{r setup, include=TRUE}
+community_stability(G0_86T0T6,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL4_1,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL4_2,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL4_3,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL4_4,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL4_5,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL4_6,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL4_7,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL4_8,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL4_9,time.var = "TimePoint",abundance.var = "Abundance")
+```
+
+##GRID0.92
+```{r setup, include=TRUE}
+community_stability(G0_92T0T6,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL5_1,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL5_2,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL5_3,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL5_4,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL5_5,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL5_6,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL5_7,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL5_8,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL5_9,time.var = "TimePoint",abundance.var = "Abundance")
+```
+
+##GRID1.02 
+```{r setup, include=TRUE}
+community_stability(G1_02T0T6,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL6_1,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL6_2,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL6_3,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL6_4,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL6_5,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL6_6,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL6_7,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL6_8,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL6_9,time.var = "TimePoint",abundance.var = "Abundance")
+```
+
+##GRID1.09 
+```{r setup, include=TRUE}
+community_stability(G1_09T0T6,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL7_1,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL7_2,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL7_3,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL7_4,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL7_5,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL7_6,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL7_7,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL7_8,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL7_9,time.var = "TimePoint",abundance.var = "Abundance")
+```
+
+##GRID1.13 
+```{r setup, include=TRUE}
+community_stability(G1_13T0T6,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL8_1,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL8_2,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL8_3,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL8_4,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL8_5,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL8_6,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL8_7,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL8_8,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL8_9,time.var = "TimePoint",abundance.var = "Abundance")
+```
+
+##GRID1.18
+```{r setup, include=TRUE}
+community_stability(G1_18T0T6,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL9_1,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL9_2,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL9_3,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL9_4,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL9_5,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL9_6,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL9_7,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL9_8,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL9_9,time.var = "TimePoint",abundance.var = "Abundance")
+```
+
+##GRID1.29 
+```{r setup, include=TRUE}
+community_stability(G1_29T0T6,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL10_1,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL10_2,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL10_3,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL10_4,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL10_5,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL10_6,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL10_7,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL10_8,time.var = "TimePoint",abundance.var = "Abundance")
+community_stability(SpSyL10_9,time.var = "TimePoint",abundance.var = "Abundance")
+```
+#turnover
+#species turnover between time periods as the proportion of species either gained or lost relative to the total number of species observed across both time periods.
+##GRID0.6
+```{r setup, include=TRUE}
+turnover(SpSyL1_1,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL1_2,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL1_3,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL1_4,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL1_5,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL1_6,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL1_7,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL1_8,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL1_9,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+```
+
+##GRID0.72
+```{r setup, include=TRUE}
+turnover(SpSyL2_1,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL2_2,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL2_3,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL2_4,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL2_5,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL2_6,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL2_7,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL2_8,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL2_9,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+```
+
+##GRID0.77
+```{r setup, include=TRUE}
+turnover(SpSyL3_1,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL3_2,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL3_3,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL3_4,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL3_5,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL3_6,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL3_7,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL3_8,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL3_9,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+```
+
+##GRID0.86
+```{r setup, include=TRUE}
+turnover(SpSyL4_1,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL4_2,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL4_3,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL4_4,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL4_5,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL4_6,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL4_7,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL4_8,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL4_9,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+```
+
+##GRID0.92
+```{r setup, include=TRUE}
+turnover(SpSyL5_1,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL5_2,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL5_3,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL5_4,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL5_5,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL5_6,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL5_7,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL5_8,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL5_9,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+```
+
+##GRID1.02
+```{r setup, include=TRUE}
+turnover(SpSyL6_1,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL6_2,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL6_3,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL6_4,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL6_5,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL6_6,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL6_7,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL6_8,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL6_9,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+```
+
+##GRID1.09
+```{r setup, include=TRUE}
+turnover(SpSyL7_1,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL7_2,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL7_3,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL7_4,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL7_5,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL7_6,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL7_7,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL7_8,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL7_9,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+```
+
+##GRID1.13
+```{r setup, include=TRUE}
+turnover(SpSyL8_1,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL8_2,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL8_3,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL8_4,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL8_5,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL8_6,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL8_7,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL8_8,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL8_9,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+```
+
+##GRID1.18
+```{r setup, include=TRUE}
+turnover(SpSyL9_1,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL9_2,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL9_3,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL9_4,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL9_5,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL9_6,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL9_7,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL9_8,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL9_9,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+```
+
+##GRID1.29
+```{r setup, include=TRUE}
+turnover(SpSyL10_1,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL10_2,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL10_3,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL10_4,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL10_5,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL10_6,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL10_7,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL10_8,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance",metric="appearance")
+turnover(SpSyL10_9,time.var = "TimePoint",species.var = "Species",abundance.var = "Abundance")
+```
+
+#variance ratio
+##Computes the ratio of the variance of aggregate species abundances in a community to the sum of the variances of individual, component species. A variance ratio = 1 indicates that species do not covary, a variance ratio > 1 indicates predominately positive covariance among species and a variance ratio < 1 indicates predominately negative covariance (Schluter 1984).
+##GRID0.6  
+```{r setup, include=TRUE}
+variance_ratio(SpSyL1_1,time.var = "TimePoint", species.var = "Species",abundance.var = "Abundance",bootnumber = 10000) 
+variance_ratio(SpSyL1_2,time.var = "TimePoint", species.var = "Species",abundance.var = "Abundance",bootnumber = 10000)
+variance_ratio(SpSyL1_3,time.var = "TimePoint", species.var = "Species",abundance.var = "Abundance",bootnumber = 10000)
+variance_ratio(SpSyL1_4,time.var = "TimePoint", species.var = "Species",abundance.var = "Abundance",bootnumber = 10000)
+variance_ratio(SpSyL1_5,time.var = "TimePoint", species.var = "Species",abundance.var = "Abundance",bootnumber = 10000)
+variance_ratio(SpSyL1_6,time.var = "TimePoint", species.var = "Species",abundance.var = "Abundance",bootnumber = 10000)
+variance_ratio(SpSyL1_7,time.var = "TimePoint", species.var = "Species",abundance.var = "Abundance",bootnumber = 10000)
+variance_ratio(SpSyL1_8,time.var = "TimePoint", species.var = "Species",abundance.var = "Abundance",bootnumber = 10000)
+variance_ratio(SpSyL1_9,time.var = "TimePoint", species.var = "Species",abundance.var = "Abundance",bootnumber = 10000)
+```
+
+
+
+
+
+#curve change GRID 0.6()
+##GRID0.6  
+```{r setup, include=TRUE}
+curve_change(SpSyL1_1, species.var = "Species",abundance.var = "Abundance",time.var = "TimePoint")
+curve_change(SpSyL1_2, species.var = "Species",abundance.var = "Abundance",time.var = "TimePoint")
+curve_change(SpSyL1_3, species.var = "Species",abundance.var = "Abundance",time.var = "TimePoint")
+curve_change(SpSyL1_4, species.var = "Species",abundance.var = "Abundance",time.var = "TimePoint")
+curve_change(SpSyL1_5, species.var = "Species",abundance.var = "Abundance",time.var = "TimePoint")
+curve_change(SpSyL1_6, species.var = "Species",abundance.var = "Abundance",time.var = "TimePoint")
+curve_change(SpSyL1_7, species.var = "Species",abundance.var = "Abundance",time.var = "TimePoint")
+curve_change(SpSyL1_8, species.var = "Species",abundance.var = "Abundance",time.var = "TimePoint")
+curve_change(SpSyL1_9, species.var = "Species",abundance.var = "Abundance",time.var = "TimePoint")
+```
+
+```{r setup, include=TRUE}
+curve_change(SpSyL10_1, species.var = "Species",abundance.var = "Abundance",time.var = "TimePoint")
+curve_change(SpSyL10_2, species.var = "Species",abundance.var = "Abundance",time.var = "TimePoint")
+curve_change(SpSyL10_3, species.var = "Species",abundance.var = "Abundance",time.var = "TimePoint")
+curve_change(SpSyL10_4, species.var = "Species",abundance.var = "Abundance",time.var = "TimePoint")
+curve_change(SpSyL10_5, species.var = "Species",abundance.var = "Abundance",time.var = "TimePoint")
+curve_change(SpSyL10_6, species.var = "Species",abundance.var = "Abundance",time.var = "TimePoint")
+curve_change(SpSyL10_7, species.var = "Species",abundance.var = "Abundance",time.var = "TimePoint")
+curve_change(SpSyL10_8, species.var = "Species",abundance.var = "Abundance",time.var = "TimePoint")
+curve_change(SpSyL10_9, species.var = "Species",abundance.var = "Abundance",time.var = "TimePoint")
+```
+
+## Mean rank shift:relative change in species rank abundances Grid0.6
+```{r setup, include=TRUE}
+rank_shift(SpSyL1_1,time.var = "TimePoint", species.var = "Species", abundance.var = "Abundance",replicate.var = as.character(NA))
+rank_shift(SpSyL1_2,time.var = "TimePoint", species.var = "Species", abundance.var = "Abundance",replicate.var = as.character(NA))
+rank_shift(SpSyL1_3,time.var = "TimePoint", species.var = "Species", abundance.var = "Abundance",replicate.var = as.character(NA))
+rank_shift(SpSyL1_4,time.var = "TimePoint", species.var = "Species", abundance.var = "Abundance",replicate.var = as.character(NA))
+rank_shift(SpSyL1_5,time.var = "TimePoint", species.var = "Species", abundance.var = "Abundance",replicate.var = as.character(NA))
+rank_shift(SpSyL1_6,time.var = "TimePoint", species.var = "Species", abundance.var = "Abundance",replicate.var = as.character(NA))
+rank_shift(SpSyL1_7,time.var = "TimePoint", species.var = "Species", abundance.var = "Abundance",replicate.var = as.character(NA))
+rank_shift(SpSyL1_8,time.var = "TimePoint", species.var = "Species", abundance.var = "Abundance",replicate.var = as.character(NA))
+rank_shift(SpSyL1_9,time.var = "TimePoint", species.var = "Species", abundance.var = "Abundance",replicate.var = as.character(NA))
+```
+
+
+
+
+
+
+
+
+
+
+# Mean rank shift:relative change in species rank abundances Grid1.29
+```{r setup, include=TRUE}
+rank_shift(SpSyL10_1,time.var = "TimePoint", species.var = "Species", abundance.var = "Abundance",replicate.var = as.character(NA))
+rank_shift(SpSyL10_2,time.var = "TimePoint", species.var = "Species", abundance.var = "Abundance",replicate.var = as.character(NA))
+rank_shift(SpSyL10_3,time.var = "TimePoint", species.var = "Species", abundance.var = "Abundance",replicate.var = as.character(NA))
+rank_shift(SpSyL10_4,time.var = "TimePoint", species.var = "Species", abundance.var = "Abundance",replicate.var = as.character(NA))
+rank_shift(SpSyL10_5,time.var = "TimePoint", species.var = "Species", abundance.var = "Abundance",replicate.var = as.character(NA))
+rank_shift(SpSyL10_6,time.var = "TimePoint", species.var = "Species", abundance.var = "Abundance",replicate.var = as.character(NA))
+rank_shift(SpSyL10_7,time.var = "TimePoint", species.var = "Species", abundance.var = "Abundance",replicate.var = as.character(NA))
+rank_shift(SpSyL10_8,time.var = "TimePoint", species.var = "Species", abundance.var = "Abundance",replicate.var = as.character(NA))
+rank_shift(SpSyL10_9,time.var = "TimePoint", species.var = "Species", abundance.var = "Abundance",replicate.var = as.character(NA))
+```
+
+
+

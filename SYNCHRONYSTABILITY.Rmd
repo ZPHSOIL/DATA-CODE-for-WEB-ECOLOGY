@@ -1,0 +1,404 @@
+---
+title: "Communitydata"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+library(readxl)
+library(tidyverse)
+library(ggplot2)
+library(rcompanion) 
+library(ggpubr)
+library(dplyr)
+library(car)
+library(Rmisc)
+library(lmPerm)
+library(foreign)
+library(MASS)
+theme_set(theme_classic())
+```
+
+
+##Synchrony
+#Permutation test
+```{r setup, include=TRUE}
+ggplot(CSS,aes(Grid,Synchrony))+
+  geom_point()
+```
+
+
+#lmPerm: Exact argument for evaluate all permutations: synchrony~clusterness
+```{r }
+summary(lmp(Synchrony~Clusterness+(1|Grid),data = CSS1))
+```
+
+#synchrony ~distance
+```{r setup, include=TRUE}
+summary(lmp(Synchrony~Distance+(1|Grid),data = CSS1))
+```
+
+```{r setup, include=TRUE}
+ggplot(CSS,aes(Distance,Synchrony))+
+  geom_point()
+```
+
+
+#lmPerm: Prob argument to use the sequential probability  ratio to decidebetween two hypotheses about a p-value
+```{r setup, include=TRUE}
+summary(lmp(Synchrony~Grid,data = CSS,perm = "Prob"))
+```
+
+#ANOVA permutation analysis 
+```{r setup, include=TRUE}
+anova(lmp(Synchrony~Grid,data = CSS))
+```
+
+
+```{r setup, include=TRUE}
+ggline(CSS1,x= "Clusterness",y= "Synchrony",palette = "red",
+       add= c("mean_se","jitter"),point.color = "blue",
+       ylab = "Synchrony",xlab= "Clusterness")
+```
+
+
+
+
+
+
+##COMMUNITY STABILITY
+#Calculates the stability of the overall community over time as the temporal mean / temporal standard deviation of aggregate species abundances
+
+#lmPerm: Exact argument for evaluate all permutations
+```{r setup, include=TRUE}
+summary(lmp(ComStab~Clusterness+(1|Grid),data = CSS1))
+```
+
+
+
+#lmPerm: Prob argument to use the sequential probability  ratio to decide between two hypotheses about a p-value
+```{r setup, include=TRUE}
+summary(lmp(ComStab~Clusterness+(1|Grid),data = CSS1,perm = "Prob"))
+```
+
+```{r setup, include=TRUE}
+summary(lmp(ComStab~Distance+(1|Grid),data = CSS1))
+```
+
+#ANOVA permutation analysis 
+```{r setup, include=TRUE}
+anova(lmp(ComStab~Grid,data = CSS))
+```
+
+```{r setup, include=TRUE}
+ggplot(CSS,aes(Grid,ComStab))+
+  geom_boxplot()
+```
+```{r setup, include=TRUE}
+ggplot(CSS,aes(Distance,ComStab))+
+  geom_point()
+```
+
+##Distance include in each grid
+```{r setup, include=TRUE}
+CSS_06<-subset(CSS1,Grid=="G0.6")
+CSS_072<-subset(CSS1,Grid=="G0.72")
+CSS_077<-subset(CSS1,Grid=="G0.77")
+CSS_086<-subset(CSS1,Grid=="G0.86")
+CSS_092<-subset(CSS1,Grid=="G0.92")
+CSS_102<-subset(CSS1,Grid=="G1.02")
+CSS_109<-subset(CSS1,Grid=="G1.09")
+CSS_113<-subset(CSS1,Grid=="G1.13")
+CSS_118<-subset(CSS1,Grid=="G1.18")
+CSS_129<-subset(CSS1,Grid=="G1.29")
+CSS_C<- subset(CSS1, Location=="L4030")
+```
+
+
+
+## how synchrony change in each grid at different distance
+```{r setup, include=TRUE}
+ggplot(data = CSS_06,aes(Distance,Synchrony) )+geom_point()+
+  theme_classic()+labs(title="Grid0.6")
+ggplot(data = CSS_072,aes(Distance,Synchrony) )+geom_point()+
+  theme_classic()+labs(title="Grid0.72")
+ggplot(data = CSS_077,aes(Distance,Synchrony) )+geom_point()+
+  theme_classic()+labs(title="Grid0.77")
+ggplot(data = CSS_086,aes(Distance,Synchrony) )+geom_point()+
+  theme_classic()+labs(title="Grid0.86")
+ggplot(data = CSS_092,aes(Distance,Synchrony) )+geom_point()+
+  theme_classic()+labs(title="Grid0.92")
+ggplot(data = CSS_102,aes(Distance,Synchrony) )+geom_point()+
+  theme_classic()+labs(title="Grid1.02")
+ggplot(data = CSS_109,aes(Distance,Synchrony) )+geom_point()+
+  theme_classic()+labs(title="Grid1.09")
+ggplot(data = CSS_113,aes(Distance,Synchrony) )+geom_point()+
+  theme_classic()+labs(title="Grid1.13")
+ggplot(data = CSS_118,aes(Distance,Synchrony) )+geom_point()+
+  theme_classic()+labs(title="Grid1.18")
+ggplot(data = CSS_129,aes(Distance,Synchrony) )+geom_point()+
+  theme_classic()+labs(title="Grid1.29")
+```
+
+## how community stability change in each grid at different distance
+```{r setup, include=TRUE}
+ggplot(data = CSS_06,aes(Distance,ComStab) )+geom_point()+
+  theme_classic()+labs(title="Grid0.6")
+ggplot(data = CSS_072,aes(Distance,ComStab) )+geom_point()+
+  theme_classic()+labs(title="Grid0.72")
+ggplot(data = CSS_077,aes(Distance,ComStab) )+geom_point()+
+  theme_classic()+labs(title="Grid0.77")
+ggplot(data = CSS_086,aes(Distance,ComStab) )+geom_point()+
+  theme_classic()+labs(title="Grid0.86")
+ggplot(data = CSS_092,aes(Distance,ComStab) )+geom_point()+
+  theme_classic()+labs(title="Grid0.92")
+ggplot(data = CSS_102,aes(Distance,ComStab) )+geom_point()+
+  theme_classic()+labs(title="Grid1.02")
+ggplot(data = CSS_109,aes(Distance,ComStab) )+geom_point()+
+  theme_classic()+labs(title="Grid1.09")
+ggplot(data = CSS_113,aes(Distance,ComStab) )+geom_point()+
+  theme_classic()+labs(title="Grid1.13")
+ggplot(data = CSS_118,aes(Distance,ComStab) )+geom_point()+
+  theme_classic()+labs(title="Grid1.18")
+ggplot(data = CSS_129,aes(Distance,ComStab) )+geom_point()+
+  theme_classic()+labs(title="Grid1.29")
+```
+
+
+
+
+#Central node synchrony and community stability
+```{r setup, include=TRUE}
+ggplot(data = CSS_C,aes(Grid,Synchrony) )+geom_point()+
+  theme_classic()+labs(title="Synchrony of central nodes in each grid")
+
+ggplot(data = CSS_C,aes(Grid,ComStab) )+geom_point()+
+  theme_classic()+labs(title="Community stability of central nodes in each grid")
+```
+
+
+#linear regression model:Synchrony~Grid central nodes
+
+```{r setup, include=TRUE}
+summary(lmp(Synchrony~Clusterness+(1|Grid),data = CSS_C))
+MCS<- lm(Synchrony~Clusterness,data = CSS_C)
+summary(MCS)
+
+summary(lmp(ComStab~Clusterness+(1|Grid),data = CSS_C))
+```
+```{r setup, include=TRUE}
+lm(Synchrony~Clusterness,data = CSS_C)
+plot(Synchrony~Clusterness,data = CSS_C)
+  abline(1.0521,-0.2821)
+```
+
+##Simple linear regression
+#Each grid synchrony~distance
+#Pearson coorelation
+#Grid0.6-correlation=-0.19;GRID0.72=-0.375;GRID0.77=-0.267
+```{r setup, include=TRUE}
+scatter.smooth(x=CSS_077$Distance,y=CSS_077$Synchrony,main="Synchrony~Distance")
+cor(CSS_077$Distance,CSS_077$Synchrony)
+```
+
+#Grid0.86-correlation=0.8528
+```{r setup, include=TRUE}
+scatter.smooth(x=CSS_086$Distance,y=CSS_086$Synchrony,main="Synchrony~Distance")
+cor(CSS_086$Distance,CSS_086$Synchrony)# A strong relationship between grids and synchrony for GRID0.86 
+```
+
+#Grid1.02-correlation=0.635
+```{r setup, include=TRUE}
+scatter.smooth(x=CSS_102$Distance,y=CSS_102$Synchrony,main="Synchrony~Distance")
+cor(CSS_102$Distance,CSS_102$Synchrony)
+```
+
+#Grid1.09-correlation=0.4879
+```{r setup, include=TRUE}
+scatter.smooth(x=CSS_109$Distance,y=CSS_109$Synchrony,main="Synchrony~Distance")
+cor(CSS_109$Distance,CSS_109$Synchrony)
+```
+
+#Grid1.13-correlation=0.2559
+```{r setup, include=TRUE}
+scatter.smooth(x=CSS_113$Distance,y=CSS_113$Synchrony,main="Synchrony~Distance")
+cor(CSS_113$Distance,CSS_113$Synchrony)
+```
+
+#Grid1.18-correlation=0.3196
+```{r setup, include=TRUE}
+scatter.smooth(x=CSS_118$Distance,y=CSS_118$Synchrony,main="Synchrony~Distance")
+cor(CSS_118$Distance,CSS_118$Synchrony)
+```
+
+#Grid1.29-correlation=0.6163
+```{r setup, include=TRUE}
+scatter.smooth(x=CSS_129$Distance,y=CSS_129$Synchrony,main="Synchrony~Distance")
+cor(CSS_129$Distance,CSS_129$Synchrony)
+```
+
+##linear regression model:Synchrony~distance
+```{r setup, include=TRUE}
+MOSD<- lm(Synchrony~Distance,data = CSS)
+summary(MOSD)
+Anova(MOSD,type = "II")
+```
+
+#linear regression model per grid:Synchrony~distance
+```{r setup, include=TRUE}
+MOSD1<- lm(Synchrony~Distance,data = CSS_06)
+summary(MOSD1)
+Anova(MOSD1,type = "II")
+MOSD2<- lm(Synchrony~Distance,data = CSS_072)
+summary(MOSD2)
+Anova(MOSD2,type = "II")
+MOSD3<- lm(Synchrony~Distance,data = CSS_077)
+summary(MOSD3)
+Anova(MOSD3,type = "II")
+MOSD5<- lm(Synchrony~Distance,data = CSS_092)
+summary(MOSD5)
+Anova(MOSD5,type = "II")
+```
+
+#linear regression:Synchrony~distance,distance showed its significant effect on synchrony only in grid0.86, some weak distabnce effect on synchrony in grid1.02 and grid 1.29
+```{r setup, include=TRUE}
+MOSD4<- lm(Synchrony~Distance,data = CSS_086)
+summary(MOSD4)
+Anova(MOSD4,type = "II")
+
+MOSD6<- lm(Synchrony~Distance,data = CSS_102)
+summary(MOSD6)
+Anova(MOSD6,type = "II")
+
+MOSD10<- lm(Synchrony~Distance,data = CSS_129)
+summary(MOSD10)
+Anova(MOSD10,type = "II")
+```
+
+
+##linear regression model:Synchrony~GRID
+```{r setup, include=TRUE}
+MOSG<- lm(Synchrony~Grid,data = CSS)
+summary(MOSG)
+Anova(MOSG,type = "II")
+```
+
+
+
+
+#linear regression model:Community stability~grid
+```{r setup, include=TRUE}
+MOCG<- lm(ComStab~Grid,data = CSS)
+summary(MOCG)
+Anova(MOCG,type = "II")
+```
+
+
+#linear regression model:Community stability~DISTANCE
+```{r setup, include=TRUE}
+MOCD<- lm(ComStab~Distance,data = CSS)
+summary(MOCD)
+Anova(MOCD,type = "II")
+```
+
+
+#Each grid stability~distance
+#Pearson coorelation
+#Grid0.6-correlation=-0.3878;GRID0.72=0.385;GRID0.77=0.036
+```{r setup, include=TRUE}
+scatter.smooth(x=CSS_077$Distance,y=CSS_077$ComStab,main="ComStab~Distance")
+cor(CSS_077$Distance,CSS_077$ComStab)
+```
+
+#Grid0.86-correlation=-0.7613617
+```{r setup, include=TRUE}
+scatter.smooth(x=CSS_086$Distance,y=CSS_086$ComStab,main="ComStab~Distance")
+cor(CSS_086$Distance,CSS_086$ComStab)
+```
+
+#Grid1.02-correlation=0.2667
+```{r setup, include=TRUE}
+scatter.smooth(x=CSS_102$Distance,y=CSS_102$ComStab,main="ComStab~Distance")
+cor(CSS_102$Distance,CSS_102$ComStab)
+```
+
+#Grid1.09-correlation=-0.27
+```{r setup, include=TRUE}
+scatter.smooth(x=CSS_109$Distance,y=CSS_109$ComStab,main="ComStab~Distance")
+cor(CSS_109$Distance,CSS_109$ComStab)
+```
+
+#Grid1.13-correlation=-0.11828
+```{r setup, include=TRUE}
+scatter.smooth(x=CSS_113$Distance,y=CSS_113$ComStab,main="ComStab~Distance")
+cor(CSS_113$Distance,CSS_113$ComStab)
+```
+
+#Grid1.18-correlation=0.1994
+```{r setup, include=TRUE}
+scatter.smooth(x=CSS_118$Distance,y=CSS_118$ComStab,main="ComStab~Distance")
+cor(CSS_118$Distance,CSS_118$ComStab)
+```
+
+#Grid1.29-correlation=-0.563
+```{r setup, include=TRUE}
+scatter.smooth(x=CSS_129$Distance,y=CSS_129$ComStab,main="ComStab~Distance")
+cor(CSS_129$Distance,CSS_129$ComStab)
+```
+
+
+
+#linear regression model per grid:ComStab~distance
+```{r setup, include=TRUE}
+MOCD1<- lm(ComStab~Distance,data = CSS_06)
+summary(MOCD1)
+Anova(MOCD1,type = "II")
+MOCD2<- lm(ComStab~Distance,data = CSS_072)
+summary(MOCD2)
+Anova(MOCD2,type = "II")
+MOCD3<- lm(ComStab~Distance,data = CSS_077)
+summary(MOCD3)
+Anova(MOCD3,type = "II")
+MOCD5<- lm(ComStab~Distance,data = CSS_092)
+summary(MOCD5)
+Anova(MOCD5,type = "II")
+```
+
+#linear regression:community stability~distance,distance showed its significant effect on synchrony only in grid0.86
+```{r setup, include=TRUE}
+MOCD4<- lm(ComStab~Distance,data = CSS_086)
+summary(MOCD4)
+Anova(MOCD4,type = "II")
+
+MOCD6<- lm(ComStab~Distance,data = CSS_102)
+summary(MOCD6)
+Anova(MOCD6,type = "II")
+
+MOCD10<- lm(ComStab~Distance,data = CSS_129)
+summary(MOCD10)
+Anova(MOCD10,type = "II")
+```
+
+
+
+```{r setup, include=TRUE}
+ggplot(COR,aes(x=Grid,y=CorDT))+geom_point()+
+  theme_classic()+
+  labs(title="Coorelation value between shannon's diversity and time in each grid")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
